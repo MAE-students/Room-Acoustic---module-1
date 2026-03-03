@@ -1,0 +1,515 @@
+\section{Acoustic Barriers}
+
+Acoustic barriers are not a room-acoustic treatment; they are employed to limit the propagation of noise between a source and a receiver. They are used outdoors for traffic noise (road vehicles, trains) and indoors where large or open spaces require partitioning (e.g.\ open-plan offices, where telephone conversations and other activities cause mutual disturbance).
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{room78.png}
+\end{figure}
+
+Acoustically, a barrier interrupts the direct sound path and forces sound to reach the receiver via an alternative path that involves interaction with the barrier surface. If the barrier were purely rigid and reflective, the incident wave would be reflected and the superposition of the direct and reflected components can, at some receiver positions, produce constructive addition rather than attenuation. For this reason practical barriers incorporate an absorptive facing: the surface should dissipate incident energy rather than simply reflect it. 
+
+In practice a barrier typically consists of a rigid structural element (steel or aluminium) onto which a \emph{fonoabsorbing} panel is mounted; the rigid backing provides mechanical strength while the absorptive layer reduces the reflected component and improves overall attenuation.
+
+\subsection{Diffraction and barrier shadow.}
+
+At the receiver side the sound is attenuated by the barrier, but a portion of the incident field still reaches listeners in the \emph{shadow} zone behind the screen because of diffraction. When the incident wavefront reaches the top (or edge) of the barrier, the wave does not simply reflect backward: part of the energy continues past the edge and part is re-radiated into the region behind the barrier, so receivers out of the direct line of sight can still hear the source. Diffraction is the typical wave phenomenon responsible for this effect; it is complex and in practice is often treated empirically by measurements performed in the shadow zone.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{room79.png}
+\end{figure}
+
+The amount of attenuation strongly depends on wavelength: low frequencies (large wavelength) diffract around the barrier and are scarcely attenuated, whereas high frequencies (short wavelength) are largely blocked and produce a deep acoustic shadow. The intermediate frequencies show a transitional behaviour that depends on barrier geometry and receiver position.
+
+\paragraph{Maekawa diagram.}
+To evaluate the insertion loss of a vertical barrier, we commonly use the empirical Maekawa diagram, which relates the acoustic attenuation (dB) to the Fresnel number \(N\). The Fresnel number quantifies the path difference introduced by the barrier edge and is defined from the path geometry: if \(A\) and \(B\) are the distances from the source and the receiver to the barrier edge, and \(d\) is the direct source–receiver distance, the path difference is
+\[
+\delta=(A+B)-d,
+\]
+and the Fresnel number is
+\[
+N=\frac{2\delta}{\lambda}=\frac{2\delta f}{c},
+\]
+where \(\lambda\) is the wavelength, \(f\) the frequency and \(c\) the sound speed. Raising the barrier increases \(\delta\), hence increases \(N\); larger \(N\) in turn yields larger attenuation.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{room80.png}
+\end{figure}
+
+Maekawa’s curves are empirical interpolations of many measurements (1960s era). The usual interpretation of these curves is simple and practical: low frequencies (large \(\lambda\)) produce small \(N\) and therefore diffract around the screen (little attenuation), while high frequencies (small \(\lambda\)) give large \(N\) and are strongly blocked (large attenuation). 
+
+Note that the Maekawa diagram assumes an idealised, laterally long (semi-infinite) vertical screen so that edge diffraction at the top dominates and lateral edge effects are neglected. Real barriers are finite and rest on the ground; ground reflections, finite length and receiver position produce deviations from the ideal curves and are usually treated empirically or with numerical models when higher accuracy is required.
+
+\paragraph{Example 1}
+% someone make the drawing please
+Barrier height \(H=3.00\ \mathrm{m}\). Horizontal distances along the ground:
+from source to barrier base \(s=5.00\ \mathrm{m}\), from barrier base to receiver \(r=10.00\ \mathrm{m}\). Direct source–receiver distance \(d=s+r=15.00\ \mathrm{m}\). The calculation assumes source and receiver heights equal to the base reference (so the barrier top height used is \(H=3\) m above that line). Sound speed \(c=344\ \mathrm{m/s}\).
+We compute attenuation for \(f_1=100\ \mathrm{Hz}\) and \(f_2=1000\ \mathrm{Hz}\).
+We use the \emph{empirical Maekawa formula} (as given):
+\[
+\Delta L = 10\log_{10}\!\bigl(3+20N\bigr),
+\qquad N=\frac{2\delta}{\lambda}=\frac{2\delta f}{c},
+\]
+where \(\delta=(A+B)-d\) is the path difference and
+\(A=\sqrt{s^2+H^2},\; B=\sqrt{r^2+H^2}\) are the edge-path lengths.
+
+Step 1: compute path lengths \(A\), \(B\) and path difference \(\delta\)
+\[
+A=\sqrt{s^{2}+H^{2}}=\sqrt{5^{2}+3^{2}}=\sqrt{34}=5.83\ \mathrm{m},
+\qquad
+B=\sqrt{r^{2}+H^{2}}=\sqrt{10^{2}+3^{2}}=\sqrt{109}=10.44\ \mathrm{m}.
+\]
+Direct distance \(d=15.00\ \mathrm{m}\), hence
+\[
+\delta=(A+B)-d=(5.83+10.44)-15.00=1.27\ \mathrm{m}.
+\]
+
+Step 2: wavelengths and Fresnel numbers.
+Wavelengths:
+\[
+\lambda_1=\frac{c}{f_1}=\frac{344}{100}=3.44\ \mathrm{m},\qquad
+\lambda_2=\frac{c}{f_2}=\frac{344}{1000}=0.34\ \mathrm{m}.
+\]
+Fresnel numbers:
+\[
+N_1=\frac{2\delta}{\lambda_1}=\frac{2\cdot 1.27}{3.44}
+= \frac{2.54}{3.44}=0.74,
+\qquad
+N_2=\frac{2\delta}{\lambda_2}=\frac{2\cdot 1.27}{0.34}
+= \frac{2.54}{0.34}=7.47.
+\]
+
+Step 3: attenuation \(\Delta L\) (Maekawa),
+\[
+\Delta L=10\log_{10}\bigl(3+20N\bigr).
+\]
+Thus
+\[
+\Delta L_1=10\log_{10}\bigl(3+20\cdot 0.74\bigr)
+=10\log_{10}(17.80)=12.50\ \mathrm{dB},
+\]
+\[
+\Delta L_2=10\log_{10}\bigl(3+20\cdot 7.47\bigr)
+=10\log_{10}(152.40)=21.84\ \mathrm{dB}.
+\]
+
+Maekawa formula above is empirical and intended for a laterally long (semi–infinite) vertical screen; real, finite barriers and ground effects may change the actual attenuation.
+
+\paragraph{Example 2}
+Consider a point source with sound power level \(L_{w}=80\ \mathrm{dB(A)}\) and a receiver at distance \(r=10.00\ \mathrm{m}\). Under ideal free‐field conditions the sound pressure level is
+\[
+L_{p}=L_{w}-20\log_{10}r-11.
+\]
+
+Substituting the numbers gives
+\[
+L_{p}=80.00-20\log_{10}(10.00)-11.00=80.00-20.00-11.00=\mathbf{49.00\ \mathrm{dB(A)}}.
+\]
+
+In practice, for environmental impact assessments one often compares the predicted SPL from the source with the ambient background level \(L_{\mathrm{bg}}\). If the source level at the receiver \(L_p\) is higher than the background by a perceptible amount, the source is considered to contribute to acoustic nuisance. Assume the ambient background A-weighted level is \(30.00\ \mathrm{dB(A)}\); the source at \(49.00\ \mathrm{dB(A)}\) would therefore be audible above background. The source therefore clearly raises the ambient level and is a potential noise impact. If neither source power nor source–receiver distance can be changed, the only practical mitigation in this context is to insert a barrier between source and receiver (or to add local absorption). This is the typical layout of a simple, predictive environmental–impact exercise.
+
+Now place an acoustic barrier between source and receiver. Geometry (as given): horizontal distance source barrier \(s=2.00\ \mathrm{m}\), barrier–receiver \(r_b=8.00\ \mathrm{m}\), barrier height \(H=3.00\ \mathrm{m}\). The direct (horizontal) source–receiver distance remains \(d=s+r_b=10.00\ \mathrm{m}\). Compute the two path lengths over the top of the barrier:
+\[
+A=\sqrt{s^{2}+H^{2}}=\sqrt{2.00^{2}+3.00^{2}}=\sqrt{13}=3.61\ \mathrm{m},
+\]
+\[
+B=\sqrt{r_b^{2}+H^{2}}=\sqrt{8.00^{2}+3.00^{2}}=\sqrt{73}=8.54\ \mathrm{m}.
+\]
+The path difference is
+\[
+\delta=(A+B)-d=(3.61+8.54)-10.00=2.15\ \mathrm{m}.
+\]
+
+For frequency \(f=1000\ \mathrm{Hz}\) (typical mid/high frequency of interest) the wavelength is
+\[
+\lambda=\frac{c}{f}=\frac{344\ \mathrm{m/s}}{1000\ \mathrm{Hz}}=0.34\ \mathrm{m}.
+\]
+The Fresnel number is
+\[
+N=\frac{2\delta}{\lambda}=\frac{2\cdot 2.15}{0.34}=12.50.
+\]
+
+Using Maekawa's empirical formula for single–edge/plane barriers, we obtain
+\[
+\Delta L=10\log_{10}\bigl(3+20\cdot 12.50\bigr)
+=10\log_{10}(253.00)=\mathbf{24.03\ \mathrm{dB}}.
+\]
+
+The new level at the receiver, with the barrier in place, is
+\[
+L_{p,\mathrm{new}}=L_{p}-\Delta L=49.00-24.03=\mathbf{24.97\ \mathrm{dB(A)}}.
+\]
+Because the background level is \(30.00\ \mathrm{dB(A)}\), the source (now \(24.97\ \mathrm{dB(A)}\)) lies below ambient and therefore the source does not increase the ambient level and is not considered a nuisance. If instead \(L_{p,\mathrm{new}}=35.00\ \mathrm{dB(A)}\) (above \(30.00\ \mathrm{dB(A)}\)), the source remains audible and therefore would be judged too noisy in this simplified assessment.
+
+\subsection{Measurement of absorption coefficient}
+
+The equivalent sound absorption area of a test specimen, \(A_T\) (in m\(^2\) sabine), is obtained from two reverberation measurements: one with the room empty (or reference state) and one with the specimen in place. The full expression recommended by the standard (including corrections for air temperature and molecular absorption) is
+\begin{equation}
+A_T \;=\; A_2 - A_1 \;=\; 55.3\,V\!\left(\frac{1}{c_2 T_2}-\frac{1}{c_1 T_1}\right)\;-\;4V\,(m_2-m_1),
+\end{equation}
+where
+\begin{itemize}
+  \item \(V\) is the room volume (m\(^3\));
+  \item \(T_1\) and \(T_2\) are the measured reverberation times (s) before and after insertion of the specimen, respectively;
+  \item \(c_1\) and \(c_2\) are the speed of sound in air (m/s) at the two measurement temperatures;
+  \item \(m_1\) and \(m_2\) are the molecular absorption coefficients (m\(^{-1}\)) corresponding to the two measurement conditions (they account for air humidity/absorption);
+  \item \(A_1\) and \(A_2\) denote the total room absorption (sabins) before and after insertion.
+\end{itemize}
+
+The sample's average absorption coefficient \(\alpha_x\) (dimensionless, from 0 to 1) is then obtained by dividing the equivalent absorption area by the sample surface \(S_x\):
+\begin{equation}
+\alpha_x \;=\; \frac{A_T}{S_x}.
+\end{equation}
+
+The \(4V(m_2-m_1)\) term accounts for the change in molecular absorption (humidity/temperature). If measurements are taken quickly under similar environmental conditions this term is small and may be neglected. So, if temperature and humidity changes between the two measurements are negligible (so \(c_1\approx c_2\) and \(m_2\approx m_1\)), the constant \(55.3/c\) reduces to the familiar Sabine coefficient \(0.16\) (SI units). In that case the commonly used simplified formula for the sample absorption coefficient is
+\begin{equation}
+\boxed{\;\alpha_x \;=\; \frac{0.163\,V}{S_x}\!\left(\frac{1}{T_2}-\frac{1}{T_1}\right)\; }
+\end{equation}
+where \(T_1\) is the reverberation time without the specimen and \(T_2\) is the reverberation time with the specimen in place.
+
+\paragraph{Procedure} Measure the room reverberation time \(T_1\) (empty/reference) and \(T_2\) (with the specimen) in the relevant octave (or one–third–octave) bands; compute the equivalent absorption area \(A_T\) using the full standard formula when temperature/humidity corrections are significant, otherwise use the simplified Sabine approximation; finally divide \(A_T\) by the specimen surface \(S_x\) to obtain the bandwise absorption coefficient \(\alpha_x=A_T/S_x\).
+
+\paragraph{Exercise 3}  
+Consider a room of dimensions \(L_x=4.50\ \mathrm{m}\), \(L_y=4.50\ \mathrm{m}\), \(L_z=2.70\ \mathrm{m}\), hence
+\[
+V = L_x L_y L_z = 4.50\cdot4.50\cdot2.70 = 54.68\ \mathrm{m^3}.
+\]
+Measured reverberation times at \(125\ \mathrm{Hz}\) are
+\[
+T_0 = 4.40\ \mathrm{s}\quad(\text{empty room}),\qquad
+T_{20}=3.57\ \mathrm{s}\quad(\text{with }20\ \text{balloons}), \qquad
+T_{35}=3.37\ \mathrm{s}\quad(\text{with }35\ \text{balloons}).
+\]
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{room101.png}
+    \includegraphics[width=0.7\textwidth]{room102.png}
+\end{figure}
+
+Each balloon has diameter \(D=0.80\ \mathrm{m}\) (radius \(R=0.40\ \mathrm{m}\)), therefore the frontal area of one balloon is
+\[
+S_1=\pi R^2=\pi(0.40)^2=0.50\ \mathrm{m^2}.
+\]
+The total frontal areas are
+\[
+S_{20}=20S_1=10.05\ \mathrm{m^2},\qquad S_{35}=35S_1=17.59\ \mathrm{m^2}
+\]
+
+Using the measurement formula (environmental correction neglected except for the constant),
+\[
+\alpha_x=\frac{0.163\,V}{S_x}\!\left(\frac{1}{T_\Delta}-\frac{1}{T_0}\right),
+\]
+we compute the apparent absorption coefficient of the balloon surface for each case. 
+
+\[
+\alpha_{20}
+=\frac{0.163\cdot 54.68}{10.05}\!\left(\frac{1}{3.57}-\frac{1}{4.40}\right)
+=\frac{8.91}{10.05}\,(0.28-0.23)
+\approx 0.05
+\]
+\[
+\alpha_{35}
+=\frac{0.163\cdot 54.68}{17.59}\!\left(\frac{1}{3.37}-\frac{1}{4.40}\right)
+=\frac{8.91}{17.59}\,(0.30-0.23)
+\approx 0.04
+\]
+
+The computed values \(\alpha_{20}\approx 0.05\) and \(\alpha_{35}\approx 0.04\) are the apparent absorption coefficients per unit frontal area of the balloons. The per–unit-area coefficient decreases when more balloons are added because the same measured reduction of reverberation time is explained by a larger total area; the total added absorption \(A=\alpha_x S_x\) nonetheless increases with the number of balloons. 
+
+When the same sample is measured in an impedance tube and in a reverberant room the results often disagree (as shown in the graphs); in particular, the low-frequency absorption values are not consistent between the room measurements and the tube measurements.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{room103.png}
+\end{figure}
+
+The reasons are deliberate and straightforward. An impedance tube enforces a one–dimensional standing–wave field and returns a normal–incidence absorption: microphone spacing in the tube is small, so long wavelengths (low frequencies) cannot form the required minima/maxima inside the instrument and the low–frequency band is lost. Conversely, the tube diameter limits the high–frequency range because transverse modes appear above the plane–wave cutoff. In real rooms the sound field is not a plane progressive wave but an approximately diffuse, three–dimensional field with many angles of incidence and complex interference with surfaces; the room measurement therefore yields a random– or averaged–incidence absorption that is not directly comparable to the tube’s normal–incidence result. Practical effects (mounting, backing, air gaps and edge conditions) and sample size in the room further change the apparent $\alpha$. This is why tube and room data are complementary rather than interchangeable. 
+
+Some experiments with balloons in the tube (one balloon, two balloons, one inside another) illustrate this point practically: changing the sample geometry inside the tube alters the standing–wave pattern and the measured $\alpha$, but those tube–specific changes do not necessarily predict the material behaviour in a diffuse room field.
+%integrare con slide
+
+
+\subsection{Reverberation-room requirements}
+
+Standards prescribe specific geometrical and acoustic properties for a reverberation room so that absorption measurements are representative and reproducible. In practice the room volume should be at least \(150\ \mathrm{m^{3}}\) (for new constructions a recommendation is \(V\gtrsim 200\ \mathrm{m^{3}}\)), while volumes much larger than about \(500\ \mathrm{m^{3}}\) can introduce additional high-frequency errors due to air absorption. The room shape must also avoid strong modal behaviour: a common shape criterion is
+\[
+I_{\max} < 1.9\,V^{1/3},
+\]
+where \(I_{\max}\) is the longest internal straight line (for a rectangular room this is the main diagonal) and \(V\) is the room volume. The objective is a well-diffused sound field (no strong focusing, no long runs of parallel, equally spaced dimensions) so that Sabine-type assumptions are approximately satisfied.
+
+A frequent practical artefact in laboratory measurements is an apparent absorption larger than unity reported in some datasheets. The absorption coefficient \(\alpha\) is, by definition, restricted to \(0\leq\alpha\leq 1\) for a single surface, so values \(>1\) indicate that extra surfaces (edge effects, exposed panel sides, mounting frames, or leakage into cavities) have contributed to the measured equivalent absorption area. For this reason test assemblies commonly include narrow perimeter boards or sealing flanges to prevent the panel edges and backing structure from participating in the measurement; when these edge contributions are removed the reported \(\alpha\) falls into the physically consistent range.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.35\textwidth]{room81.png}
+    \includegraphics[width=0.3\textwidth]{room82.png}
+\end{figure}
+
+\subsection{Passive acoustic requirements (D.P.C.M. 5 December 1997)}
+
+Since the D.P.C.M. of 5 December 1997, new buildings in Italy must comply with mandatory passive acoustic requirements. These rules prescribe minimum performance for walls, floors, ceilings and building services so as to limit noise transmission between dwellings and from technical installations; they are applied at design and construction stage and are commonly checked by the local authority when granting building permits.
+
+For many years the statutory limits were often not enforced (mainly for economic reasons), which produced a large number of disputes between property owners and builders. The regulation was temporarily suspended in 2011 because of the volume of litigation, but it was subsequently reinstated. Today most municipalities request an acoustic design (and in many cases the subsequent acoustic verification) together with the other project documents (lighting, energy, etc.).
+
+Only a qualified ``technician competent in acoustics'' may prepare and sign the required acoustic design documents and the final acoustic test report. Some municipalities require both a theoretical calculation at the design stage and a full acoustic commissioning/collaudo after construction; in the latter case each room is verified to ensure that the applicable parameters comply with the legal limits.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{room104.png} 
+\end{figure}
+
+\paragraph{Building acoustic requirements and characteristic indices}
+The national acoustic regulation assigns, for each intended use of a room, a set of mandatory acoustic requirements expressed by characteristic indices. The most common indices are:
+
+\begin{itemize}
+  \item \(R_w\): the weighted ($w$) \emph{sound reduction index $R$} (airborne insulation of a separating element) of a partition/walls. It quantifies how much sound is transmitted between adjacent rooms and is fundamental whenever speech or other sounds in one room must not be perceived in neighbouring rooms (e.g.\ lessons in a classroom, television in a dwelling).
+  \item \(D_{2\mathrm{m},nT,w}\): weighted ($w$) standardized ($nT$) level difference $D$ (airborne insulation expressed as a difference of levels) of façade at $2m$. This index expresses how much exterior noise reaches the interior through the building envelope and its openings.
+  \item \(L_{n,w}\): the weighted ($w$) normalized ($n$) \emph{impact sound pressure level $L$} (floor/footfall transmission) of floors/ceilings; it measures the perceived noise from footsteps and other impact sources transmitted through the structure.
+\end{itemize}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{room105.png}
+\end{figure}
+
+In addition to these indices, the regulation also introduces limits for service and plant noise. 
+The index \(L_{ASmax}\) refers to the A--weighted sound pressure level generated by \emph{discontinuous service noise}, such as lifts or door mechanisms; the subscript \(S\) indicates that measurements must be performed using the appropriate sound level meter setting for discrete events. 
+Conversely, \(L_{A,eq}\) denotes the A--weighted \emph{equivalent continuous sound level}, which is used to characterize continuous or quasi--continuous noise produced by building services and technological systems (e.g.\ heat pumps, ventilation units). 
+In practice, the evaluation of \(L_{A,eq}\) is often supported by dedicated software tools, as it requires time averaging over representative operating conditions.
+
+
+The law therefore prescribes minimum values of \(R_w\), \(D_{2\mathrm{m},nT,w}\) and maximum admissible \(L_{n,w}\) depending on the room category. Building components (partitions, façades, floors, windows, doors) must be designed and constructed so that the corresponding indices meet the statutory limits. In practice the acoustic performance of windows and frames (``infissi'') is also critical: they are often optimized primarily for thermal performance, but good airtightness that reduces heat loss typically also reduces airborne sound transmission. Similarly, floor construction must be detailed to achieve the required \(L_{n,w}\) for impact noise.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{room94.png}
+\end{figure}
+
+\subsection{Sound Reduction Index}
+
+The \emph{sound reduction index} or transmission loss (potere fonoisolante) is a logarithmic measure of the sound transmitted through a partition. It quantifies the ability of a wall to oppose the passage of an incident airborne wave.
+
+
+It is defined starting from the transmission coefficient $\tau$, which represents the ratio between the acoustic power transmitted through the element and the incident acoustic power:
+\[
+\tau = \frac{W_{\text{trasm}}}{W_{\text{inc}}}.
+\]
+The sound reduction index is then expressed on a logarithmic scale as
+\[
+R = 10 \log_{10}\!\left(\frac{1}{\tau}\right) \quad [\mathrm{dB}],
+\]
+so that higher values of $R$ correspond to better airborne sound insulation performance of the partition, meaning that a smaller fraction of the incident acoustic energy is able to pass through the structure.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.3\textwidth]{room86.png}
+\end{figure}
+
+Typical wall configurations include: (i) \emph{single--leaf thin panels} (e.g., masonry partitions); (ii) \emph{double--leaf panels} such as gypsum–board systems with a mineral–wool infill; and (iii) composite arrangements. In practice, gypsum double–leaf partitions are widely used because they are quick to assemble and acoustically effective.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{room87.png}
+\end{figure}
+
+The expected frequency trend is as follows.  
+(a) \textbf{Low frequencies:} thin single–leaf walls transmit significantly, since long wavelengths readily excite the panel and pass through the partition.  
+(b) \textbf{Mass–law region:} above the very–low–frequency range, insulation increases with frequency and with surface mass. This is the \emph{mass law}, often expressed (for a single leaf) as
+\[
+R \approx 20\log_{10}(f\,m)-48\ \text{dB},
+\]
+so heavier (denser) panels provide greater sound insulation; to block strong sources one needs high surface mass (e.g., lead).  This law approximation holds in a diffuse sound field, averaged over one--third--octave bands. In general, for a \emph{thin single panel} (i.e.\ a partition whose thickness is small compared both to the acoustic wavelength in air and to the bending wavelength in the solid), for an incident plane wave at angle $\theta$, the sound reduction index can be written as
+\[
+R_\theta = 10 \log_{10}\!\left[ 1 + \left( \frac{\pi f m}{\rho_0 c}\cos\theta \right)^2 \right] \quad \text{dB},
+\]
+where $f$ is the frequency, $m$ is the mass per unit area of the panel, and $\rho_0 c$ is the characteristic acoustic impedance of air.  
+(c) \textbf{Coincidence effect:} the rise of $R$ does not continue indefinitely. A dip appears at the \emph{critical (coincidence) frequency},  where, because of a given angle of incidence, the frequency of the airborne sound wave is such that the phase velocity of the forced bending waves in the panel equals that of the panel’s free bending waves. Under this condition, the acoustic excitation couples efficiently with the structural vibration, producing a resonance phenomenon. As a consequence, the vibrational response of the panel becomes maximal and the sound reduction index exhibits a marked dip around this frequency, which depends on the material properties and thickness of the panel. It is critical in lightweight metal skins (e.g., aircraft aluminium), whereas common building gypsum systems are usually less affected when correctly dimensioned.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{room115.png}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{room90.png}
+\end{figure}
+
+For a \emph{single thin panel}, a practical forecast of the airborne sound
+insulation \(R(f)\) can be sketched from three regimes.
+At very low frequencies the wall cannot effectively block sound and this
+region is usually disregarded in a design sketch.
+From low–mid frequencies up to about one half of the critical frequency
+\(\,f_c/2\), the \emph{mass law} applies and \(R\) increases with a slope of
+approximately \(6\ \mathrm{dB}\) per octave.
+Around the \emph{critical (coincidence) frequency} \(f_c\) a dip appears,
+because the bending wave in the panel resonates with the incident acoustic
+wave; immediately above \(f_c\) the trend rises again with a steeper slope,
+about \(9\text{–}10\ \mathrm{dB}\) per octave.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{room92.png}
+\end{figure}
+
+The insulation of a \emph{double‐leaf} system (two thin panels separated by
+an air cavity) increases as the cavity depth grows: the leaves vibrate more
+independently and the air layer introduces additional dissipation.
+Filling the cavity with a porous, damping material (e.g., glass wool, rock
+wool, polyester) further boosts the reduction index, producing a marked jump
+relative to the empty‐cavity case.
+%More generally, by combining panels with different masses and stiffnesses (i.e., \emph{composite} constructions), one can exploit the different resonance frequencies of the leaves to raise the overall insulation.
+%da integrare con le formule nelle slide
+In particular, low--frequency behaviour of double--leaf partitions  is governed by the resonance frequency
+\[
+f_0=\frac{1}{2\pi}\sqrt{\frac{(m_1+m_2)\rho_0 c^2}{m_1 m_2\, d}},
+\]
+where \(m_1\) and \(m_2\) are the surface masses of the panels and \(d\) is the cavity depth; increasing \(d\) shifts the resonance to lower frequencies and improves insulation.  
+
+For composite walls made of elements with different areas \(S_i\) and sound reduction indices \(R_i\), the overall insulation is obtained by energy summation,
+\[
+R_c = 10\log_{10}\!\left(\frac{S_1+S_2}{S_1\,10^{-R_1/10}+S_2\,10^{-R_2/10}}\right),
+\]
+showing that acoustically weaker components (e.g.\ doors or windows) can significantly reduce the global performance.
+
+
+For single homogeneous walls the mass law, as brick walls, provides a reasonable estimate of
+\(R(f)\). For \emph{drywall / gypsum‐board} systems, however, the mass law alone is not sufficient, because damping and vibro–acoustic coupling in the multi‐layer assembly control the result; in practice the prediction is made with dedicated tools (e.g., \textsc{INSUL}), and manufacturers typically supply
+expected \(R\) curves for their catalog partitions.
+
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.35\textwidth]{room116.png}
+    \includegraphics[width=0.35\textwidth]{room117.png}
+\end{figure}
+
+Brick masonry follows the mass law: increasing sound insulation requires a significant increase in surface mass, which in practice means thicker and more expensive walls, and even then it is often difficult to reach the (50 dB) required by regulations. Gypsum–board partitions, although lighter, achieve higher insulation thanks to dissipative mechanisms: the individual panels can slide and vibrate quasi-independently, and the cavity between them introduces additional damping. From an environmental perspective, gypsum systems are also advantageous, as they are more recyclable and better aligned with the Minimum Environmental Criteria (CAM). A critical weakness of gypsum walls is the presence of electrical boxes and service penetrations: if not properly sealed, these create air paths that allow sound transmission. In traditional construction, adding a gypsum lining (controparete) to a masonry wall is therefore an effective strategy to significantly improve acoustic insulation without excessively increasing thickness or cost.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.35\textwidth]{room114.png}
+\end{figure}
+
+In wall sound transmission there are also secondary paths, known as \textbf{flanking transmissions}. If a suspended ceiling (controsoffitto) stops at the partition instead of being continuous, an \emph{acoustic bridge} is created between adjacent rooms. In this case the partition does not fully separate the volumes: air can pass through the ceiling plenum, and therefore sound can bypass the wall and reach the neighbouring room. Even if the wall itself has a good sound reduction index, these discontinuities allow airborne noise to propagate through indirect paths, significantly reducing the overall acoustic insulation of the separation.
+
+
+
+\paragraph{Sound reduction index (measurement).}
+To measure the sound reduction index of a partition, a \emph{spherical
+omnidirectional} source (dodecahedral loudspeaker) is placed in the
+\emph{source room} and the sound pressure level is measured at several
+positions to obtain the spatial average \(L_1\).
+The microphone is then moved to the \emph{receiving room} (the adjacent
+space, separated by the test partition) and the spatially averaged level
+\(L_2\) is measured. Knowing the reverberation time in the receiving room,
+the total absorption \(A\) of that room is obtained from Sabine’s relation
+(\(A=\alpha S\)). The frequency–dependent sound reduction index is then
+computed, in third–octave bands, as
+\[
+R=L_1-L_2+10\log_{10}\!\frac{S}{A},
+\]
+where \(S\) is the area of the tested element and \(A\) is the receiving‐room
+absorption. 
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.55\textwidth]{room118.png}
+\end{figure}
+
+For comparison with regulations, a single–number index \(R_w\) is derived from the measured curve by graphical fitting. The measured sound reduction spectrum \(R\) (third octaves, often reported in octaves from \(125~\mathrm{Hz}\) to \(4~\mathrm{kHz}\)) is compared with the ISO\,717 reference contour. The contour is translated vertically (no change of shape) and the unfavourable deviations are evaluated in each band as
+\(
+d_f=\max\{0,\,R_{\mathrm{ref}}-R\}.
+\)
+The contour is positioned so that the ISO fitting rules are satisfied: 
+(i) \(\sum_f d_f \le 32~\mathrm{dB}\) and 
+(ii) \(\max_f d_f \le 8~\mathrm{dB}\).
+Favourable deviations (where \(R\ge R_{\mathrm{ref}}\)) are ignored. The single–number index \(R'_w\) is then the value of the fitted reference contour at \(500~\mathrm{Hz}\).
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.45\textwidth]{room119.png}
+\end{figure}
+
+The weighted sound reduction index $R_w$ is a laboratory value that describes the intrinsic airborne sound insulation of a separating element, considering only direct transmission. In real buildings, additional sound energy is transmitted through flanking elements and structural connections; this effect is taken into account by the weighted apparent sound reduction index $R'_w$, measured in situ. Consequently, $R'_w \leq R_w$, and their difference (usually between 2 and 5 dB) represents the loss of performance due to lateral transmission paths, which is why regulations are based on $R'_w$ rather than $R_w$.
+
+\subsection{Sound Insulation Index}
+The standardized façade sound insulation index \(D_{2\mathrm{m},nT,w}\) quantifies the ability of a building façade to reduce airborne noise coming from outdoors (e.g.\ road traffic). 
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.65\textwidth]{room120.png}
+\end{figure}
+
+Although façades are often designed primarily for thermal performance, windows (\emph{infissi}) play a critical role from an acoustic point of view. Architecturally, large glazed surfaces are aesthetically attractive, but glass elements generally represent the acoustically weakest part of the façade. For this reason, the weighted sound reduction index \(R_w\) of windows must be provided by the manufacturer and carefully considered during design. In general, the overall façade insulation is strongly governed by the weakest elements: even if the opaque wall has a high \(R_w\), poorly performing windows can significantly reduce \(D_{2\mathrm{m},nT,w}\), allowing external noise to penetrate into the indoor environment.
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.75\textwidth]{room121.png}
+\end{figure}
+
+\subsection{Impact Sound Pressure Level}
+The parameter \(L\) is assessed with the \emph{standard tapping machine}, a device with five hammers that drop from a height of \(40\,\mathrm{mm}\), driven by a camshaft to produce continuous impacts. The machine is placed on the floor of the source room, and the average sound pressure level in the receiving room below is measured at several positions. The spectrum is then normalized to the reference reverberation time by
+\[
+L_n = L_1 - 10\log_{10}\!\left(\frac{T}{T_0}\right),
+\]
+where \(L_1\) is the measured level, \(T\) the reverberation time of the receiving room, and \(T_0\) the reference value. 
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.55\textwidth]{room122.png}
+\includegraphics[width=0.35\textwidth]{room123.png}
+
+\end{figure}
+
+For comparison with regulations, a single--number rating \(L_{n,w}\) is obtained from the third–octave curve \(L_n(f)\) by fitting the ISO reference contour (graphically shifting it up or down until it matches the measured curve operationally the same idea as balancing the areas); the ordinate of the
+positioned contour at \(500\,\mathrm{Hz}\) is reported as \(L_{n,w}\). A higher \(L_{n,w}\) means more impact noise transmitted below. 
+
+\begin{figure}[!htb]
+    \centering
+
+\includegraphics[width=0.35\textwidth]{room124.png}
+
+\end{figure}
+
+Mitigation is achieved by introducing a resilient isolating layer within the floor build-up (i.e., a floating floor), which interrupts the vibro–acoustic continuity of the slab and yields a marked reduction of impact transmission. 
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{room108.png}
+    \includegraphics[width=0.25\textwidth]{room126.png}
+    \includegraphics[width=0.45\textwidth]{room106.png}
+    \includegraphics[width=0.45\textwidth]{room107.png}
+    
+\end{figure}
+
+In practice, mats must be laid \emph{without discontinuities}: adjacent sheets are bonded/taped to one another and then covered (e.g., with a sand layer); because granular fills can leave voids, two resilient panels are often installed in crossed orientation (at \(90^\circ\)) to minimise gaps. Joints must be tight and continuous to avoid flanking transmission.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.3\textwidth]{room111.png}
+\end{figure}
+
+Finally, the improvement exhibits diminishing returns with thickness: beyond an adequate thickness/dynamic stiffness, additional layers provide only marginal extra attenuation.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.4\textwidth]{room109.png}
+    \includegraphics[width=0.4\textwidth]{room110.png}
+\end{figure}
+
+
+
+\subsection{Acoustic Classification of Buildings (UNI 11367)}
+The standard \textbf{UNI~11367}, published in 2010 and entitled \emph{``Acoustics in building construction – Acoustic classification of real estate units – In situ evaluation and verification procedure''}, introduces a comprehensive methodology for the acoustic qualification of buildings. This standard is intended to become the reference framework for future regulations on passive acoustic requirements, replacing the currently enforced \emph{DPCM 5/12/1997}. Its main innovation is the introduction of an acoustic classification of real estate units into four classes (from I to IV), ranging from very high to modest acoustic performance. Each unit is assigned a single synthetic descriptor, the \emph{acoustic class}, derived from the evaluation of individual passive acoustic requirements. The classification applies to several building uses, including residential, office, hospitality, recreational, religious, and commercial buildings. According to UNI~11367, the acoustic quality is assessed through specific performance descriptors: the normalized façade sound insulation index $D_{2m,nT,w}$, the apparent sound reduction index of vertical and horizontal partitions $R'_w$, and the normalized impact sound pressure level $L'_{n,w}$, which together provide an overall assessment of the acoustic comfort of the building.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.3\textwidth]{room127.png}
+    \includegraphics[width=0.6\textwidth]{room128.png}
+\end{figure}
+
+

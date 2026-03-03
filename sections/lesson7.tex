@@ -1,0 +1,297 @@
+\section{Archeoacoustic}
+
+\section{Acoustic performance study using \textsc{Echo~8}}
+
+Since 1997, Italian building projects must comply with the statutory \emph{passive acoustic requirements}; consequently, an \emph{acoustic design} must accompany the architectural and structural documentation. The most delicate aspect of the work is aligning technical solutions with the applicable regulations so that all prescribed performance indices are satisfied.
+
+The design is developed with the software \textsc{Echo~8}, which allows the user to define the regulatory framework and target acoustic criteria and to manage the relevant design parameters. Within the same environment it is possible to select the reference standards and the required indices so that the simulation reflects both technical needs and legal constraints.
+
+Starting from the architectural floor plan, the model includes all elements that govern acoustic comfort: fenestration and frames, windows, doors, partitions, and floor/ceiling assemblies. Where windows are present, the façade sound insulation is assessed; for walls and partitions, the airborne sound insulation of the separating structures is evaluated. The first step is therefore the analysis of the building layout to identify the constructive characteristics of each partition and the materials adopted. In particular, the \emph{sound reduction index} (potere fonoisolante) of the fenestration (e.g. \(R_w\) for the window system) and the composition and materials of the walls must be known, as these inputs directly determine the predicted acoustic performance of the building.
+
+\subsection{Façade}
+
+We consider the façade sound insulation of the classroom. The external wall
+(with windows) consists of an inner gypsum board lining and an outer masonry
+leaf; since the gypsum board contributes little to the airborne sound
+insulation, the masonry governs the performance. The windows are glazed
+frames.
+
+In \textsc{Echo~8} the workflow is:
+(i) define the masonry material (\emph{MUR – Murature}) with thickness
+\(t=15\,\mathrm{cm}\), surface mass \(m=300\,\mathrm{kg/m^2}\), and the usual
+mechanical properties;
+(ii) build the external wall assembly using that material (layered section);
+(iii) enter the glazed area (in \(\mathrm{m^2}\)) and its sound reduction
+index from the datasheet; for the present study we take
+\(R_{\text{brick}}\approx 52\,\mathrm{dB}\) and
+\(R_{\text{glazing}}\approx 36\,\mathrm{dB}\);
+(iv) specify the room volume and the typical reference settings for
+educational spaces. The software then computes the overall sound reduction of
+the façade.
+
+As expected, increasing the glazed fraction lowers the global façade
+insulation, because the window \(R\) is lower than that of the masonry. The
+most critical inputs are the sound reduction data of the components:
+accurate manufacturer values are needed for a reliable estimate. 
+
+For massive
+elements, the dependence on frequency follows the (simplified) \emph{mass
+law}
+\[
+R \approx 20\log_{10}(m\,f)-47\ \;[\mathrm{dB}],
+\]
+where \(m\) is the surface mass (\(\mathrm{kg/m^2}\)) and \(f\) is the
+frequency (\(\mathrm{Hz}\)); increasing density and thickness (thus \(m\))
+improves the insulation.
+
+Experimentally, the insulation of the façade system can be expressed by the
+level difference
+\[
+D = L_1 - L_2,
+\]
+with \(L_1\) the average sound pressure level in the source room and \(L_2\)
+the average level in the receiving room (after the wall/window system). A
+larger \(D\) indicates better airborne sound insulation of the façade.
+
+
+\paragraph{Façade - Echo~8 workflow}
+
+In \textsc{Echo~8} the project is built step by step. First, create a new project of type ``passive acoustic requirements'' and, in the project–data section, activate the façade insulation item. Then create a new opaque element representing the façade; in the present case its plan dimensions are \(4\times 4~\mathrm{m}\), for a total area of \(16~\mathrm{m^2}\).
+
+From \textit{Archivio} \(\rightarrow\) \textit{Archivio materiale} add a new masonry material (\textit{MUR–Muratura}), entering the layer thickness and surface mass; the remaining properties may be left at unit values, as they are mainly used for thermal calculations. Via the \textit{Stratigrafia} function, assign the created material to the opaque element; for more complex walls additional layers (e.g., plaster, insulating layers) can be added.
+
+Next, enter the room data (volume and intended use) so that the software applies the appropriate regulatory reference values. Create a new window element (\textit{serramento}) to represent the glazed openings by specifying the total window area in \(\mathrm{m^2}\). For the window it is not necessary to add a material from the archive, since the acoustic characteristics are taken from the manufacturer’s datasheet.
+
+Finally, the software processes all inputs and returns the overall façade level difference \(D\), i.e., the estimated global acoustic insulation of the façade. The value \(D\) decreases when windows are included, because frames typically provide much lower sound insulation than a masonry wall.
+
+
+\subsection{Partition between two rooms}
+
+With \textsc{Echo\,8} it is possible to study the airborne sound insulation between two adjacent rooms by modelling the separating wall and the relevant flanking paths. A new project of type ``passive acoustic requirements'' is created and the internal partition under test is set as the object of verification. The source and receiving rooms are defined by volume, use category and the reference limits required by the regulation. The separating element is then introduced with its surface area and stratigraphy (e.g.\ gypsum board, resilient layer, masonry), each layer being characterised by thickness, surface mass and, when available, the laboratory sound reduction index \(R_w\).
+
+Beyond the direct transmission through the partition, the software allows the selection of the structural \emph{joints} and the assignment of the sound reduction of every adjacent wall and floor/ceiling, so that \textit{flanking} transmission is included in the calculation of the apparent sound reduction index \(R'_w\). In building acoustics, joints are the geometric connections between construction elements (walls, floors, ceilings, linings) through which vibrations may bypass the main partition. Their geometry strongly influences lateral transmission and thus the final \(R'_w\). The main joint types available in \textsc{Echo\,8} are:
+\begin{itemize}
+  \item \textbf{T--joint:} one wall intersects another orthogonally (typical of internal partitions). Lateral transmission is moderate because energy can propagate along both walls.
+  \item \textbf{L--joint:} two walls meet at a right angle (room corner). Lateral transmission is reduced, as the corner limits vibrational continuity.
+  \item \textbf{X--joint (cross):} four walls meet at one point. This configuration favours higher flanking transmission because vibrations can spread in several directions.
+  \item \textbf{Parallel joint:} two walls or slabs lie on parallel planes and are connected by intermediate structural members (beams, columns). If not decoupled, this can produce strong vibrational transmission.
+\end{itemize}
+
+After the materials, joints and the sound reduction of all bounding elements are specified, the program combines the direct and flanking contributions and returns the apparent sound reduction \(R'_w\) of the separating wall. The result is then checked against the required passive acoustic limits for the declared use (e.g.\ residential, educational, hospital). Accurate input of materials, joint geometry and the insulation of every adjacent wall and slab is essential to obtain realistic predictions and to guarantee both acoustic comfort and regulatory compliance. The minimum required \(R'_w\) depends on the building type (e.g.\ hospitals demand higher values than offices); wall dimensions and material choices can be iterated in the model to reach the target.
+
+
+\subsection{Slab between two rooms}
+
+The goal is to evaluate the impact sound level (\textit{Livello rumore da calpestio}) transmitted from the upper room through the slab (\textit{solaio}). Commercial slabs are standardized; in \textit{solai a predalles} the hollow blocks are EPS (polistirolo) rather than terracotta.  
+Start a new project of type \textit{requisiti acustici passivi} and proceed as follows.
+
+\paragraph{1) Project data.}
+In \textit{Dati di progetto} enable \textit{Livello rumore da calpestio (L\textsubscript{n,w} -- L'\textsubscript{nT,w})}.  
+\emph{ Fig.~\ref{fig:calpestio-menu} .}
+
+\paragraph{2) Room layout.}
+When prompted by \textit{Posizione degli ambienti}, select \textit{Ambienti sovrapposti} (impact from the storey above).  
+\emph{Place Fig.~\ref{fig:posizione} here.}
+
+\paragraph{3) Choose the slab.}
+Open \textit{Archivio elementi} $\rightarrow$ \textit{Solai} $\rightarrow$ (e.g.) \textit{Solaio in laterocemento}. Pick a representative type (e.g.\ \textit{Solaio travetti precompressi e pignatte 16+4 cm}) and use \textit{Calcola L\textsubscript{n,eq,0,w}} to obtain the bare-slab impact index.  
+\emph{ Figs.~\ref{fig:archivio-solai}--\ref{fig:calcola-ln} .}
+
+\paragraph{4) Assemble the model.}
+Return to the \textit{Livello da calpestio} sheet, tab \textit{Selezione elementi}, choose \textit{Solaio utente} and insert the selected slab as the \textit{Struttura di base}. The initial prediction is about $L\textsubscript{n,w}\approx78.9$\,dB (bare slab), which is very high compared with the requirement for residential use in \textit{DPCM 5/12/1997} ($L\textsubscript{n,w}\le 63$\,dB).  
+\emph{ Fig.~\ref{fig:selezione-solaio} .}
+
+\paragraph{5) Surrounding walls (optional check).}
+Changing \textit{pareti} from \textit{Archivio elementi} has little influence on the impact result; the governing path is through the slab.  
+\emph{ Figs.~\ref{fig:archivio-pareti}--\ref{fig:parete-inserita} .}
+
+\paragraph{6) Flanking transmission.}
+Open the \textit{Seleziona giunti} tab and choose the joints consistent with the structure (e.g.\ \textit{Giunti in edifici pesanti} $\rightarrow$ \textit{T in laterizio (caso 1)} on sides S--6, S--7, S--8). Confirm lengths and default dynamic stiffness.  
+\emph{ Fig.~\ref{fig:giunti} .}
+
+\paragraph{7) Results.}
+In \textit{Risultati} the software reports the contributions for the direct path and the flanking paths and the overall index. With the settings above we obtain about $L\textsubscript{n,w}\approx79$\,dB, still above the $63$\,dB limit: a \emph{strato resiliente} (resilient underlay) must be added to the floor build-up to achieve compliance.  
+\emph{ Fig.~\ref{fig:risultati} .}
+
+\paragraph{8) Add a resilient layer (\(\Delta L_w\)).}
+On the sheet \textit{Selezione elementi}, keep the \textit{Solaio utente} selected and click
+\textit{Strati addizionali} \(\rightarrow\) \textit{Calcola} on the \emph{lato superiore}.
+Choose \texttt{massetto \emph{in calcestruzzo}}, then \textit{Materiale resiliente}
+\(\rightarrow\) \textit{Predefinito} and pick the product used on site (e.g.\ \emph{FONOSTOPDuo}).
+Insert the manufacturer’s attenuation, e.g.\ \(\Delta L_w=32~\mathrm{dB}\).
+\\[2pt]
+\emph{ Fig.~\ref{fig:strati-add} (Echo: Strati addizionali) and
+Fig.~\ref{fig:deltalw} (manufacter datasheet \(\Delta L_w\)) .}
+
+\paragraph{9) Recompute and check.}
+Return to the \textit{Risultati} tab. The global index drops from about
+\(L_{n,w}\approx 78.9~\mathrm{dB}\) to \(L_{n,w}\approx 47.1~\mathrm{dB}\)
+(uncertainty \(\approx 2.9~\mathrm{dB}\)). The \textit{DPCM 5/12/97} check turns
+green for the chosen \textit{Destinazione d’uso} (limit \(L_{n,w}=63~\mathrm{dB}\)).
+\\[2pt]
+\emph{ Fig.~\ref{fig:risultati-final} (Echo: risultati con \(\Delta L_w\)) .}
+
+\paragraph{10) Comfort acustico ambienti (T–C50–STI).}
+From the project tree select \emph{Dati di progetto $\rightarrow$ Comfort acustico ambienti (T - C50 - STI)} and create a new item (see Fig.~\ref{fig:tree}).
+
+\paragraph{11) Define the absorbing surfaces.}
+In \emph{Definizione superfici ed elementi} add the room surfaces by category:
+\begin{itemize}
+  \item \emph{Pavimenti}: choose a rigid floor finish (e.g.\ ``Coperture rigide per pavimenti su pavimenti pesanti'') and set the area (e.g.\ $49~\mathrm{m^2}$), see Fig.~\ref{fig:pav}.
+  \item \emph{Pareti}: select the wall lining (e.g.\ ``Cartongesso, 2 strati di 16~mm su montanti'') and enter the total wall area (e.g.\ $90~\mathrm{m^2}$), see Fig.~\ref{fig:par}.
+  \item \emph{Soffitti}: choose the ceiling absorber (e.g.\ ``Pannello in poliuretano espanso 5~mm'') and its area (e.g.\ $49~\mathrm{m^2}$), see Fig.~\ref{fig:sof}.
+\end{itemize}
+Echo fills the octave–band coefficients from its database; verify that all listed $\alpha$ values remain $<1$.
+
+Use the \emph{Tabella riassuntiva} to confirm the band–by–band equivalent absorption and the totals (Fig.~\ref{fig:summary}).
+
+\paragraph{12) Compute the reverberation time.}
+Open the tab \emph{Tempo di riverberazione} (or \emph{Valori di riferimento} $\rightarrow$ \emph{Inserisci T calcolato}) to let Echo estimate $T$ from the selected surfaces and compare with measured values (Fig.~\ref{fig:tcalc}). Differences are expected because database coefficients are generic and diffusion is approximate.
+
+\paragraph{13) STI configuration and result.}
+In the \emph{STI} tab set source \emph{direttività $Q$}, listener distance, and \emph{rumore di fondo}. Echo returns the \emph{Indice di trasmissione del parlato (STI)}; in the example \textbf{STI = 0.52} versus a design target \emph{STI minimo} of \textbf{0.60} (Fig.~\ref{fig:sti}), so intelligibility is insufficient.
+
+\paragraph{14) Acoustic tuning (iterate).}
+Increase ceiling absorption (e.g.\ thicker or larger \emph{soffitti} treatment) and recompute \emph{Tempo di riverberazione} and \emph{STI}. Lower $T$ improves \emph{C50} and raises STI; iterate until STI~$\geq$~0.60 while keeping all $\alpha<1$ and realistic \emph{rumore di fondo} and \emph{direttività $Q$}.
+
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.5\textwidth]{e1.png}
+  \caption{\textit{Dati di progetto}: enable \textit{Livello rumore da calpestio}.}
+  \label{fig:calpestio-menu}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.55\textwidth]{e2.png}
+  \caption{\textit{Posizione degli ambienti}: choose \textit{Ambienti sovrapposti}.}
+  \label{fig:posizione}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.95\textwidth]{e3.png}
+  \caption{\textit{Archivio elementi} $\rightarrow$ \textit{Solai}: select a standard slab.}
+  \label{fig:archivio-solai}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.9\textwidth]{e4.png}
+  \caption{For the chosen slab, use \textit{Calcola L\textsubscript{n,eq,0,w}} to get the bare-slab index.}
+  \label{fig:calcola-ln}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.95\textwidth]{e6.png}
+  \caption{\textit{Selezione elementi}: insert the slab as \textit{Struttura di base}; baseline $L\textsubscript{n,w}\approx78.9$\,dB.}
+  \label{fig:selezione-solaio}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.95\textwidth]{e7.png}
+  \caption{\textit{Archivio elementi} $\rightarrow$ \textit{Pareti}: example wall library.}
+  \label{fig:archivio-pareti}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.95\textwidth]{e8.png}
+  \caption{\textit{Selezione elementi}: adding surrounding walls has marginal effect on $L\textsubscript{n,w}$.}
+  \label{fig:parete-inserita}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.95\textwidth]{e9.png}
+  \caption{\textit{Seleziona giunti}: choose appropriate flanking joints (e.g.\ \textit{T in laterizio}).}
+  \label{fig:giunti}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.95\textwidth]{e10.png}
+  \caption{\textit{Risultati}: overall $L\textsubscript{n,w}$ (here $\sim\!69$\,dB in our example) vs.\ the DPCM 5/12/1997 limit for residential ($63$\,dB).}
+  \label{fig:risultati}
+\end{figure}
+
+
+
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.85\linewidth]{e12.png}
+  \includegraphics[width=.85\linewidth]{e13.png}
+  \caption{Echo~8: \texttt{Strati addizionali} for the \texttt{Solaio utente}.}
+  \label{fig:strati-add}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.95\linewidth]{e11.png}
+  \caption{Manufacturer sheet used to read the product attenuation \(\Delta L_w\).}
+  \label{fig:deltalw}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.95\linewidth]{e14.png}
+  \caption{Echo~8: final \emph{Livello rumore da calpestio} after adding the resilient layer.}
+  \label{fig:risultati-final}
+\end{figure}
+
+
+
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.55\textwidth]{e15.png}
+  \caption{Project tree with \emph{Comfort acustico ambienti (T - C50 - STI)} selected.}
+  \label{fig:tree}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.95\textwidth]{e16.png}
+  \caption{\emph{Pavimenti}: octave-band absorption coefficients and area.}
+  \label{fig:pav}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.95\textwidth]{e17.png}
+  \caption{\emph{Pareti}: selection of wall lining and coefficients.}
+  \label{fig:par}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.95\textwidth]{e18.png}
+  \caption{\emph{Soffitti}: ceiling absorber choice and area.}
+  \label{fig:sof}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.85\textwidth]{e20.png}
+  \caption{Absorption \emph{Tabella riassuntiva} across octave bands.}
+  \label{fig:summary}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.6\textwidth]{e21.png}
+  \caption{Calculated reverberation time $T$ per octave band (\emph{Valori di riferimento}).}
+  \label{fig:tcalc}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.6\textwidth]{e22.png}
+  \caption{\emph{STI} result: example with STI = 0.52 and target \emph{STI minimo} = 0.60.}
+  \label{fig:sti}
+\end{figure}

@@ -1,0 +1,331 @@
+\subsection{Sound Pressure Level}
+
+Sound can be described as a variation of pressure around the atmospheric pressure, which is approximately \( P_0 = 10^5 \, \text{Pa} \). The minimum pressure variation produced by the human voice is about \( p(t) = 2 \times 10^{-5} \, \text{Pa} \), corresponding to very low energy. The amplitude of the human voice typically ranges from \( 10^{-5} \, \text{Pa} \) up to \( 10 \, \text{Pa} \). Even though speech barely moves anything macroscopically, the ear still perceives it; conversely, extremely powerful events (e.g., rocket launches or sonic booms) produce excessive noise—hence the practice of flying very high so that the boom propagates upward and its impact at ground is reduced. This very large dynamic range, measurable with instruments but not directly perceivable visually.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.3\textwidth]{room1.png}
+    \quad
+    \includegraphics[width=0.5\textwidth]{room0.9.png}
+\end{figure}
+
+Alexander Graham Bell studied the effects of the human voice and introduced the concept of the decibel (dB) to represent the sound pressure level, derived from pressure in pascals. The decibel scale is logarithmic: it compresses very large variations into a manageable range, making small numbers larger and large numbers smaller. This is particularly useful in acoustics, where extremely small values must be represented and compared (the raw pressure values span many orders of magnitude, while decibel compress those values in manageable range). Furthermore, auditory perception is approximately logarithmic in level. Human hearing tolerates levels up to about \(140\,\mathrm{dB}\). Above roughly \(90\,\mathrm{dB}\) we can experience a temporary loss of sensitivity; the effect depends on both exposure time and acoustic energy. The definition of sound pressure level is:
+\[
+L_p = 10 \log_{10} \left( \frac{p^2}{p_{\text{rif}}^2} \right) 
+     = 20 \log_{10} \left( \frac{p}{p_{\text{rif}}} \right) \quad [\text{dB}]
+\]
+The square of the pressure is used because the instantaneous pressure variation \( p(t) \) can be positive or negative around the equilibrium (atmospheric pressure). Squaring ensures non-negative values, which makes the logarithmic measure meaningful. The reference pressure \( p_{\text{rif}} \) is conventionally set to \( 2 \times 10^{-5} \, \text{Pa} \), which is the average threshold of hearing for a healthy human ear. Below this value, sound is generally not perceived. However, this threshold is only indicative: individual sensitivity varies, and in noisy environments the effective threshold may increase (e.g., up to \( 10^{-4} \, \text{Pa} \)). By definition, \( 0 \, \text{dB} \) corresponds to the reference value \( 2 \times 10^{-5} \, \text{Pa} \). Negative dB values are possible and correspond to sound pressures below this reference, which may not be perceptible to the average ear.
+
+\paragraph{Examples.}  
+By applying the formula for the sound pressure level,one obtains:
+\[
+L_p = 20 \log_{10} \left( \frac{2 \times 10^{-1}}{2 \times 10^{-5}} \right)
+     = 20 \log_{10} (10^{4})
+     = 20 \cdot 4
+     = 80 \, \text{dB}.
+\]
+Similarly, for \( p = 1 \, \text{Pa} \):
+\[
+L_p = 20 \log_{10} \left( \frac{1}{2 \times 10^{-5}} \right)
+     = 20 \log_{10} (5 \times 10^{4})
+     \approx 20 \cdot 5
+     = 100 \, \text{dB}.
+\]
+
+\paragraph{Combination of Two Sources.}  
+When two independent sound sources are present, the total sound pressure level is obtained by the logarithmic sum of their individual levels \( L_{p1} \) and \( L_{p2} \):  
+\[
+L_{p} = 10 \log_{10} \left( 10^{L_{p1}/10} + 10^{L_{p2}/10} \right).
+\]
+
+\paragraph{Example 1.}  
+If \( L_{p1} = L_{p2} = 70 \, \text{dB} \), then:  
+\[
+L_p = 10 \log_{10} \left( 10^{70/10} + 10^{70/10} \right)
+     = 10 \log_{10} \left( 10^7 + 10^7 \right)
+     = 10 \log_{10} \left( 2 \cdot 10^7 \right).
+\]  
+\[
+L_p = 10 \left( \log_{10}(2) + \log_{10}(10^7) \right)
+     = 10 \left( 0.3010 + 7 \right)
+     = 73.0 \, \text{dB}.
+\]  
+Thus, with two identical sources, the total SPL increases by \( 3 \, \text{dB} \).  
+
+\paragraph{Fish Rule.}  
+If the difference between the two sources is less than \( 10 \, \text{dB} \), the contribution of the weaker source is still noticeable. If the difference exceeds \( 10 \, \text{dB} \), the weaker source can be considered negligible. 
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{room2bis.png}\includegraphics[width=0.45\textwidth]{room2.png}
+\end{figure}
+
+\paragraph{Example 2 (Four Identical Sources).} If there are four sources each producing \( 60 \, \text{dB} \):
+
+\begin{enumerate}
+    \item Combine two of them:  
+    \[
+    L_{12} = 10 \log_{10} \left( 10^{60/10} + 10^{60/10} \right) = 10 \log_{10} \left( 2 \cdot 10^6 \right) = 63.0 \, \text{dB}.
+    \]  
+    \item Combine the other two, obtaining the same result: \( L_{34} = 63.0 \, \text{dB} \). 
+    \item Finally, combine \( L_{12} \) and \( L_{34} \):  
+    \[
+    L_p = 10 \log_{10} \left( 10^{63/10} + 10^{63/10} \right) = 66.0 \, \text{dB}.
+    \]  
+    Hence, four sources at \( 60 \, \text{dB} \) produce a total level of \( 66 \, \text{dB} \).  
+\end{enumerate}
+
+\paragraph{Example 3 (Different Levels).} Consider four sources at \( 65 \, \text{dB} \), \( 68 \, \text{dB} \), and \( 70 \, \text{dB} \):  
+\[
+L_p = 10 \log_{10}\!\left(10^{65/10} + 10^{68/10} + 10^{70/10}\right) = 10 \log_{10}\!\left(10^{6.5} + 10^{6.8} + 10^{7}\right)\approx 72.9\,\text{dB}.
+\]
+
+\subsection{Frequency Bands.}
+
+The human auditory system is sensitive to frequencies between approximately \(20 \, \text{Hz}\) and \(20 \, \text{kHz}\). This interval corresponds to about 20,000 distinct frequency values. To simplify measurement and analysis, octave bands are often used. These bands double in frequency (e.g., 31.5 Hz, 63 Hz, up to 16 kHz), and in some cases third-octave bands are employed for finer resolution. 
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.4\textwidth]{room5.png}
+\end{figure}
+
+Historically, measurement systems were based on analogue filters, which allowed the study of only one frequency at a time. Due to technological and economic limitations, it was not feasible to measure the entire range with very high resolution. Nowadays, with digital electronics, it is possible to perform measurements across the full frequency range simultaneously. The subdivision into frequency bands is necessary because in acoustics both time-domain and frequency-domain analyses are used. In the time domain, the variation of pressure over time is observed, while in the frequency domain the distribution of harmonic components is analysed. The diagram illustrates the auditory field, showing the threshold of hearing, the regions corresponding to vocal and orchestral ranges, the limit of auditory experience, and the threshold of pain. Below the threshold of hearing, noise or sound waves may still exist, but they are not perceived because the ear lacks the necessary sensitivity.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.4\textwidth]{room3.png}
+    \includegraphics[width=0.5\textwidth]{room4.png}
+\end{figure}
+
+\subsection{Sound Level Meter (Phonometer).} A sound level meter is an instrument that provides the measurable sound level. It has a microphone on the top, usually protected by a windscreen. In acoustics the quantity of interest is the \emph{average} level, not the instantaneous value; therefore the display shows the \emph{equivalent continuous sound level} \(L_{\mathrm{eq}}\), typically reported with A–weighting, i.e.\ in \(\mathrm{dB(A)}\), to account for human hearing sensitivity. In Italy, the effects of noise on humans are addressed by \emph{D.Lgs.\ 81/2008}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.4\textwidth]{room6.png}
+\end{figure}
+
+A telephone and a sound level meter are not the same: the telephone microphone is piezoelectric (very small and inexpensive; it deforms when speaking), whereas a sound level meter uses a condenser microphone. The piezoelectric solution is simpler but less accurate, while the condenser capsule is more complex and provides higher measurement accuracy. Before use, the meter must be calibrated with an acoustic calibrator that provides a \(1\,\mathrm{kHz}\) tone at \(94\,\mathrm{dB}\) in a dedicated cavity. The microphone is inserted into the cavity; if the instrument reads \(94\,\mathrm{dB}\), it is correctly adjusted. In addition, the instrument must be periodically calibrated (every two years) by an accredited laboratory, in accordance with European practice.
+
+\paragraph{Phonometer Measurement.} The measurement shows the frequency distribution (upper plot) and the temporal evolution (lower plot). In the upper plot, the blue columns represent the third–octave subdivision. In the lower plot, the minimum level corresponds to silence.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{room7.png}
+\end{figure}
+
+Results depend on the selected weighting:
+
+\begin{itemize}
+  \item \textbf{A} (\(\mathrm{dB(A)}\)): low frequencies are attenuated, so values are slightly lower; this reflects human hearing behaviour.
+  \item \textbf{Lin} (\(\mathrm{dB}\) linear): all frequencies are included, i.e., the entire sound arriving from the environment.
+\end{itemize}
+
+For example, rain noise shows a large difference between A and Lin because it contains many low–frequency components.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.15\textwidth]{room8.png}
+    \includegraphics[width=0.15\textwidth]{room9.png}
+    \includegraphics[width=0.15\textwidth]{room10.png}
+\end{figure}
+
+When plotting in \(\mathrm{dB(A)}\), low–frequency components largely disappear. When plotting in linear \(\mathrm{dB}\), energy over the whole spectrum is visible. The components missing in the A–weighted plot are low–frequency noises that are present in the environment but are not perceived. This is beneficial: otherwise one would hear too many low–frequency noises. For this reason, warning signals (e.g., horns, sirens) are concentrated in the mid–frequency range; around \(1\,\text{kHz}\) the sound is perceived as dangerous.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{room13.png}
+\end{figure}
+
+Here the calibrator noise is clearly visible: in time it is \(94\,\text{dB}\) for a few seconds; in frequency it is a single tone at \(1\,\text{kHz}\). Both representations are shown in \(\mathrm{dB(A)}\) and in linear \(\mathrm{dB}\).
+
+\subsection{Microphone Selection.}
+
+Depending on the phenomenon to be studied, the microphone size changes. For low–frequency sources a \(1''\) microphone is required; for high–frequency sources a \(1/4''\) microphone is used. A sound level meter should not be employed in windy conditions (spoiler effect) or in rain, as this can cause damage; moreover, high–quality capsules are very expensive (about 1000 € for a \(1/4''\) capsule). In environmental acoustics, \(1/2''\) microphones are used, because at high frequencies one must detect very small pressure variations. Brüel \& Kjær has produced systems and brochures that are helpful for understanding acoustic problems (here follows an illustration and a corresponding description of one of the images in the brochure); one of the best microphone manufacturers is GRAS.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{room14.png}
+    \includegraphics[width=0.4\textwidth]{room15.png}
+    \caption{Measuring microphones are condenser (or capacitor) designs which feature a tensioned-metal diaphragm supported close to a rigid metal backplate.The cartridge internal cavity is exposed to atmospheric pressure by a small vent and the construction of the microphone is completed with the addition of diaphragm protection grid.
+    \textbf{Principle of Operation}
+    The diaphragm and backplate form the parallel plates of a simple air-capacitor which is polarized by a charge on the back- plate.
+    When the diaphragm vibrates in a sound field, the capacitance of the capacitor varies and an output voltage is generated.
+    The voltage signal replicates the sound-field pressure variations as long as the charge on the microphone backplate is kept fixed.}
+\end{figure}
+ 
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{room16.png}
+\end{figure}
+
+\begin{tcolorbox}[colback=lightgray, colframe=gray, title=Historical backgrounds]
+    \paragraph{Sabine and Early Architectural Acoustics.} Wallace Clement Sabine, often regarded as the father of modern acoustics, was a physicist with an eclectic profile who taught at Harvard. After students reported difficulty hearing him, he began systematic studies of room acoustics. He observed that rooms containing cotton (readily available from ships docking in the Boston port) exhibited different acoustic behaviour, suggesting that cotton could correct the acoustics of a room. Using only his ear, a clock, and an organ pipe, and performing measurements in university rooms, he formulated what became known as Sabine’s rule for acoustic correction. He carried out tests under different conditions and noted that with open windows the sound energy escaped, whereas with closed windows it was reflected back into the room. From these observations he inferred the sound absorption coefficient giving \(1\) for an open window setting (maximum absorption) and \(0\) for a closed window (minimum absorption); conversely, the reflection coefficient is \(1\) for the closed window (maximum reflection). Near the university there was a theatre; by placing theatre chairs in university rooms he observed that increasing the number of chairs decreased the time during which sound was audible. These studies laid the foundations of modern architectural acoustics. See \emph{Collected Papers on Acoustics} by Wallace Clement Sabine.
+    
+    \paragraph{Vitruvius and Classical Precedents.} In his research Sabine also recalled the writings of Vitruvius, the Roman architect. Without modern technical tools and relying on observation, Greek and Roman builders created theatres with excellent acoustics; over the Roman period more than a thousand theatres were constructed. They also noticed that amphorae (used to transport water and wine), whether full or empty, modified the acoustic character of rooms in which they were placed; Vitruvius employed this phenomenon to tune theatre acoustics.
+\end{tcolorbox}
+
+\section{Sound Absorbtion}
+
+\subsection{Absorption and Insulation}
+
+Reverberation depends on room geometry and the materials employed. In acoustics the two primary issues are \emph{absorption} and \emph{insulation}. 
+
+\begin{enumerate}
+  \item If it is necessary to remove sound energy from the air in a given space, it must be transferred to systems that effectively absorb the sound, minimizing the material discontinuities between the air and the systems (\emph{sound absorption}). The extreme case is the anechoic chamber.
+  \item If it is necessary to limit the propagation of sound between air and solid structures, or between solids, or between solids and air, strong material discontinuities must be created (\emph{sound insulation}). Ideally, this would be the case of two infinite plates separated by a vacuum.
+\end{enumerate}
+
+In other worlds: absorption occurs when sound energy reaches a surface and is dissipated within the material; insulation occurs when sound impinging on a wall is largely reflected back. The effects depend on the material properties, and materials for absorption and for insulation are different.
+
+\subsection{Absorbtion Materials}
+
+For insulation, materials with high density (e.g., wood or other dense layers) are used. For absorption, low density porous materials are required so that the wave can propagate within the pores. Traditional absorbers such as glass wool and rock wool are less used due to indoor air–quality concerns (over time they release impurities and dust; although their fibres are larger than asbestos and thus not hazardous; they don't cause wave diffraction). Currently, natural materials (e.g., hemp or flax) and recycled materials are preferred, for example products derived from tyres or polyester bottles (e.g., Foritech or Whisper by Sogimi; the latter was developed for packaging, does not shed particles, does not degrade over time, and is ``closed–cell,'' but it performs less well at low frequencies). The materials used for acoustic absorption should ideally be homogeneous and isotropic, meaning that their properties remain uniform throughout the volume and are the same in all directions. For example, glass wool is generally considered a "clean" material, by contrast, products obtained from recycled fibers may exhibit inhomogeneities. These materials can slightly modulate humidity, though only in large spaces. For public buildings, the \emph{CAM}—\emph{Criteri Ambientali Minimi} 2017 (updated 2022)—requires the use of recycled and recyclable materials.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.35\textwidth]{room28.png}
+    \includegraphics[width=0.35\textwidth]{room29.png}
+    \caption{Hemp (left) and rock wool (right)}
+\end{figure}
+
+The effect of absorption is attenuation due to energy dissipation. In porous materials, numerous micro–cavities convert kinetic energy into heat, producing dissipation. The greater the number of micro–cavities, the higher the sound absorption. Sound absorption is therefore a dissipative phenomenon.
+
+\subsection{Anechoic chambers} 
+
+One of the earliest modern anechoic chambers was built in Denmark by Brüel \& Kjær for testing acoustic instruments. The design pursues two goals. First, the enclosure is made with high–density walls so that external noise—especially low frequencies—does not enter the room. Low–frequency components are typically present even when not consciously perceived and may originate from traffic, wind, or other distant sources. Second, highly absorbing treatments are installed inside the chamber so that sound generated within does not return after hitting the boundaries but is absorbed. The chamber exhibits a \emph{cutoff frequency}, i.e., a lowest frequency at which the room behaves anechoically; below this threshold the treatment is ineffective (usually absorbing materials does not absorbe low freqeuncies). This limit depends not only on frequency but also on the source–microphone distance. The absorbing wedges often have a pyramidal geometry with depths up to about one metre; greater thickness increases low–frequency absorption (gradual-impedance transition). To extend performance at low frequencies, Helmholtz resonators can be placed behind the porous wedges. Anechoic chambers are essential for industrial measurements, since product acceptance is influenced by acoustic emissions (e.g. in USA noisy cars are required, while in Europe silent cars are preferred).
+
+\subsection{Non–acoustic parameters of porous materials with a "rigid skeleton".}
+
+\paragraph{Porosity \(Y\).} This is the ratio between the volume of air \(V_a\) contained in the interstices and the volume of the material \(V_m\):
+\[
+Y=\frac{V_a}{V_m}.
+\]
+Porosity is straightforward to measure because it quantifies the amount of air contained in the material.
+
+\paragraph{Structure factor \(s\).} This quantity is defined as the ratio between the mean effective path followed by air in the interstices to pass from one face to the other of a specimen with parallel faces and the thickness \(d\) of the specimen. It represents a measure of channel tortuosity compared to a specimen whose equal channels run parallel and orthogonal to the faces.
+
+\paragraph{Flow resistivity} Flow resistance is defined as \(R_f=\frac{\Delta p}{v}\) (Rayl, MKS). Flow resistivity \(R_1\) quantifies the pressure loss per unit thickness through a specimen with parallel faces and admits the equivalent forms
+\[
+R_1 =\frac{A}{Q}\,\frac{\Delta p}{s}
+    =\frac{p_1-p_2}{v\,s}
+    =\frac{1}{v}\,\frac{\Delta p}{s},
+\]
+where \(\Delta p=p_1-p_2\) is the pressure difference (Pa), \(v\) is the normal particle velocity across the specimen (m/s), \(s\) is the sample thickness (m), \(Q\) the volume flow rate (m\(^3\)/s), and \(A\) the specimen area (m\(^2\)). In MKS units \(R_1\) has dimensions \(\mathrm{Pa\,s/m^2}=\mathrm{Rayl\,m^{-1}}=\mathrm{kg/(s\,m^3)}\). The pressure difference between the two faces of the specimen determines \(\Delta p\), hence the resistivity.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.25\textwidth]{room17.png}
+    \quad
+    \includegraphics[width=0.5\textwidth]{room18.png}
+\end{figure}
+
+The measurement requires the pressure difference before and after the material, \(\Delta\tilde{p}\), read by a differential manometer. A piston, driven by a rotating cam, moves in a cavity and generates an alternating airflow with frequency \(f\) and stroke \(h\) (volumetric flow \(q_v\)). A low frequency (about \(2\,\text{Hz}\)) is used to ensure a laminar regime in the tube (a single compact air column without edge effects); higher frequencies introduce turbulence and invalidate the measurement. The piston moves air in the tube; the pressure is measured synchronously (facilitated by the known cam frequency). The atmospheric pressure is then acquired, and the difference between the two readings yields \(\Delta p\). The main practical difficulty of the apparatus is the construction of the cam.
+The specimen is prepared as a circular sample to fit the test cell.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{room19.png}
+    \includegraphics[width=0.35\textwidth]{room20.png}
+\end{figure}
+
+Increasing the density of a porous material generally leads to higher flow resistivity. Empirical relations show that, from the density, one can estimate the corresponding resistivity and vice versa, based on measurements performed on many material samples. Flow resistivity expresses the ease with which air passes through the pores: if air flows easily, the resistivity is low; if the material strongly resists air passage, the resistivity is high.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.55\textwidth]{room21.png}
+    \includegraphics[width=0.35\textwidth]{room22.png}
+\end{figure}
+
+\subsection{Impedance tube}
+
+The impedance tube (Kundt or standing–wave tube) measures the absorption coefficient \(\alpha\). It is a very old instrument (created about a century ago and widely used in acoustics for decades). A loudspeaker generates a plane progressive wave that travels along the tube until the material sample; part of the wave is absorbed and part reflected. Between the loudspeaker and the sample a standing wave forms; microphones placed in this section measure the pressure at different points, from which \(\alpha\) is obtained. Acoustic characterization can be performed either in an impedance tube (normal incidence) or in a reverberant chamber.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.55\textwidth]{room23.png}
+    \includegraphics[width=0.35\textwidth]{room24.png}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.55\textwidth]{room25.png}
+    \includegraphics[width=0.35\textwidth]{room26.png}
+\end{figure}
+
+The first limit is set by the tube diameter. With a diameter of \(10\,\text{cm}\) the plane–wave condition is not fulfilled above about \(2000\,\text{Hz}\); hence measurements above this value are not reliable for this tube. To exceed \(2000\,\text{Hz}\) a smaller diameter is required (for porous materials, above \(2000\,\text{Hz}\) \(\alpha\) is typically close to \(1\)). The second limit concerns the distance between microphones. If the microphones are close, higher frequencies can be studied; if they are farther apart, lower frequencies can be measured. The microphone read the pressure at two point of the waveform  of the stationary wave (the transfer function is proportional to the absorbtion coefficient). At low frequency the maxima and minima of the standing wave may lie outside the tube (the wave appears almost flat), so the microphones may read nearly the same pressure. For this reason, for a \(10\,\text{cm}\) tube the practical lower limit is about \(200\,\text{Hz}\). Reducing the diameter sacrifices low–frequency information but extends the high–frequency range. Consequently, for a \(10\,\text{cm}\) tube measurements below \(200\,\text{Hz}\) or above \(2000\,\text{Hz}\) should not be used. Using two microphones is faster because a single acquisition yields the needed parameters; a single microphone may also be used with sweep (MLS) signals (since it's invariant) by changing the microphone position.
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.55\textwidth]{room27.png}
+\end{figure}
+
+In practice, the envelopes of the standing–wave maxima appear similar, while the minima vary along a hyperbolic trend; each tube exhibits a small, instrument–dependent systematic error. With this tube one measures the absorption coefficient, and transmission loss can also be determined. 
+
+\subsection{Absorbtion coefficient computation}
+
+In the impedance tube, the normal-incidence reflection factor is obtained from the two–microphone transfer functions \(H_{12}\) as 
+\[
+r=\lvert r\rvert e^{j\phi_r}=r_r+j\,r_i=\frac{H_{12}-H_I}{H_R-H_{12}}\,e^{2j k_0 x_1},
+\]
+where \(r_r\) and \(r_i\) are the real and imaginary parts, \(x_1\) is the distance between the sample and the farther microphone, and \(H_I,H_R\) are the reference transfer functions (for, respectively, a purely incident and a purely reflected plane wave between microphones). The normal incidence sound absorbtion coefficient then follows directly:
+\[
+\alpha = 1-\lvert r\rvert^2 = 1-r_r^2-r_i^2 .
+\]
+In the 1990s, semi-empirical formulas were introduced to describe the acoustic behavior of porous materials. These expressions were derived from interpolations of experimental data and are widely used in engineering practice. The key feature of these models is the use of complex quantities, which allow one to account not only for amplitude variations but also for phase differences in wave propagation. 
+\[
+Z_c=\rho_0 c_0\!\left[1+c_1\!\left(\frac{\rho_0 f}{\sigma}\right)^{c_2}\!-i\,c_3\!\left(\frac{\rho_0 f}{\sigma}\right)^{c_4}\right],\qquad
+k_c=\frac{\omega}{c_0}\!\left[1+c_5\!\left(\frac{\rho_0 f}{\sigma}\right)^{c_6}\!-i\,c_7\!\left(\frac{\rho_0 f}{\sigma}\right)^{c_8}\right],
+\]
+\[
+Z_s=-i\,Z_c\,\coth(k_c d),\qquad
+\alpha = 1-\left|\frac{Z_s-\rho_0 c_0}{\,Z_s+\rho_0 c_0\,}\right|^2,
+\]
+where \(Z_c\) is the characteristic impedance, \(k_c\) is the characteristic wave number, \(c_0\) is the speed of sound in air, \(\rho_0\) is the air density, \(\sigma\) is the airflow resistivity, \(f\) is the frequency in Hz, \(\omega\) is the frequency in rad/s, \(Z_s\) is the surface impedance, \(d\) is the thickness of the composite, and \(\alpha\) is the SAC.
+In the Delany–Bazley form, the characteristic impedance $Z_c$ and the complex wave number $k_c$ of a porous material can be written as follows:
+\[
+Z_c = \rho_0 c_0 \left[ 1 + 0.0571 \left( \frac{\rho_0 f}{\sigma} \right)^{-0.754}
+      - j\,0.087 \left( \frac{\rho_0 f}{\sigma} \right)^{-0.732} \right],
+\]
+\[
+k_c = \frac{\omega}{c_0} \left[ 1 + 0.0978 \left( \frac{\rho_0 f}{\sigma} \right)^{-0.7}
+      - j\,0.189 \left( \frac{\rho_0 f}{\sigma} \right)^{-0.595} \right],
+\]
+These relations describe how the internal structure of a porous material influences the propagation of acoustic waves.
+The impedance of a finite-thickness layer of porous material is expressed as
+\[
+Z_l = (Z_R + iZ_I)\coth[(\alpha + i\beta)l] = Z_{lR} + iZ_{lI},
+\]
+where $Z_R$ and $Z_I$ denote the real and imaginary parts of the characteristic impedance, while $\alpha$ and $\beta$ represent the real and imaginary parts of the wave number. From this impedance, the normal-incidence absorption coefficient $\alpha_n$ can be computed as
+\[
+\alpha_n = \frac{4Z_{lR}\rho_0 c_0}{|Z_l|^2 + 2\rho_0 c_0 Z_{lR} + (\rho_0 c_0)^2}.
+\]
+This formulation highlights the link between the airflow resistivity of the material and its sound absorption properties. By knowing the resistivity, it becomes possible to estimate the absorption coefficient across frequency.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{room58.png}
+    \includegraphics[width=0.45\textwidth]{room59.png}
+\end{figure}
+
+The resulting curves show how the real and imaginary parts of the impedance vary with frequency, and how the absorption coefficient $\alpha_n$ grows, typically approaching unity at high frequencies. Thus, the tube provides an \emph{experimental} \(\alpha\) via \(r\); Delany–Bazley gives a \emph{theoretical} \(\alpha\) predicted from the measured airflow resistivity.
+
+\subsection{Porus Absorber Calculator: absorber thickness and flow resistivity}
+
+The plots show the absorption coefficient as a function of frequency, with a porous layer mounted on a rigid wall (no air gap). 
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.65\textwidth]{room30.png}
+\end{figure}
+
+Increasing the thickness generally raises the absorption coefficient \(\alpha\) at mid–high frequencies but provides little improvement at low frequencies. 
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.65\textwidth]{room31.png}
+\end{figure}
+
+By contrast, increasing the airflow resistivity \(\sigma\) makes the material less permeable to air; the coupling to the sound field weakens and the overall absorption decreases. In practice, there is an optimal, intermediate \(\sigma\): too low \(\sigma\) leaves the layer too transparent, while too high \(\sigma\) over-restricts flow and reduces \(\alpha\). In this software, the predicted \(\alpha\) agrees well with measurements because the model is fitted to extensive experimental data for many materials.
+
+\paragraph{Design workflow.}
+The aim is to achieve acoustic correction of an environment. In the preliminary (theoretical) phase, a room model is built to understand the expected behaviour from geometry and materials. For measurements, an impulse response is acquired (e.g., by bursting a balloon); processing the impulse response yields the room’s acoustic characteristics, which guide the material choice.
+Our goal is to determine the absorption coefficient \(\alpha\) as a function of frequency, \(\alpha(f)\), to select appropriate treatments for the target room. Porous materials are not very effective at low frequency. To absorb lows, dedicated resonant absorbers are used: (i) Helmholtz resonators (e.g., amphora–type cavities), and (ii) panel/membrane absorbers mounted on a rigid wall with an air cavity. In the latter, the incident wave reflects at the wall, a standing wave forms in the cavity with a pressure minimum near the panel, and the panel vibrates and dissipates energy.

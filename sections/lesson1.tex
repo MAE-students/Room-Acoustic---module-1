@@ -1,0 +1,82 @@
+\section{Acoustic Measurement Fundamentals}
+
+We distinguish \emph{sound} from \emph{noise} by preference: a signal we like (e.g., music) is perceived as sound, while an unwanted signal is perceived as noise.
+
+Frequency is measured in hertz (Hz) and is defined as \(f=\tfrac{1}{T}\), where \(T\) is the period (s). In air at room conditions the speed of sound is \(c \approx 344\,\mathrm{m/s}\); hence the wavelength is
+\(
+\lambda=\frac{c}{f}\quad (\text{in metres}).
+\)
+A harmonic wave oscillates around a mean value with maxima and minima; \(\lambda\) is the distance between two consecutive maxima (or minima). Human perception labels frequencies as “low” or “high”; due to air absorption, high frequencies are more strongly attenuated. The speed of sound in air varies slightly with conditions (e.g., \(c \approx 340\text{–}344\,\mathrm{m/s}\)). The Mach number compares speed to \(c\): Mach \(1\) corresponds to about \(1235\,\mathrm{km/h}\) at \(20^\circ\mathrm{C}\) (a sonic boom occurs at this threshold). In water, sound travels faster, \(c \approx 1500\,\mathrm{m/s}\).
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.25\textwidth]{room0.6.png}
+    \includegraphics[width=0.6\textwidth]{room0.7.png}
+\end{figure}
+
+\paragraph{Examples.}
+A heart rate of \(60\) beats/min equals \(1\,\mathrm{Hz}\) (one beat per second); \(120\) beats/min equals \(2\,\mathrm{Hz}\). These are low frequencies, below the audible band \(20\,\mathrm{Hz}\)–\(20\,\mathrm{kHz}\), so the heartbeat is not heard as a tone.
+
+Because \(c\) is approximately constant in a given medium, \(f\lambda=c\): low frequency implies large \(\lambda\), high frequency implies small \(\lambda\). When a wave encounters a material, small wavelengths (high \(f\)) are more readily absorbed by porous absorbers; large wavelengths (low \(f\)) tend to pass through, so these materials are effective mainly at mid–high frequencies and comparatively “transparent’’ at low frequencies.
+
+\subsection{Human Hearing}
+
+Humans have \textbf{two ears} to localize sources: binaural hearing (stereo) enables direction finding, which would be impossible with only one ear.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{room0.1.png}
+    \includegraphics[width=0.4\textwidth]{room0.2.png}
+\end{figure}
+
+Sound enters the \textbf{pinna} and propagates through the \textbf{ear canal} to the \textbf{tympanic membrane}. The canal behaves approximately as an \emph{open--closed} acoustic tube and exhibits a resonance near \(\sim 3~\text{kHz}\), which boosts sensitivity around that frequency; consequently the ear is maximally sensitive near \(3~\text{kHz}\). Because children have shorter canals, their peak sensitivity occurs at higher frequency.
+The \textbf{tympanic membrane} is extremely sensitive (since moves with little values of pressure) and sets the three \textbf{ossicles} (malleus, incus, stapes) into motion. This lever system amplifies the mechanical energy from the eardrum. At very high levels a protective reflex stiffens/compresses the ossicular chain, reducing transmission of excessive energy to the inner ear.
+The ossicles drive the \textbf{cochlea}, which contains fluid (endolymph). Motion of this fluid produces mechanical stimulation that is \emph{transduced into electrical/neural signals}. From an acoustic standpoint the analysis typically stops here; beyond this point the problem belongs to psychoacoustics and neuroscience.
+
+The nominal human audible range is \(20~\text{Hz}\) to \(20~\text{kHz}\), with frequency--dependent sensitivity. Loudness is quantified using the \textbf{decibel (dB)}, historically linked to Bell (telephony). Because small radiators---and the ear canal---are inefficient at low frequency, perceived sensitivity varies strongly with frequency.
+
+Understanding ear mechanics underpins \textbf{hearing--protection} rules. In industrial environments earplugs/earmuffs are used; however, at \emph{low frequencies} protection is less effective because long--wavelength sound can reach the inner ear via paths around the ear (through the head), not only through the canal.
+
+\subsection{Equal--loudness curves and A--weighting}
+
+Low--frequency components can be present in a room but remain \emph{inaudible}. In the equal--loudness (Fletcher--Munson / ISO) graph, the dashed curve is the \textbf{threshold of hearing}: sounds above it are heard, sounds below it are not. The curves show that auditory sensitivity depends on frequency: it is poor at low frequencies and increases toward the mid--high range, with a maximum around \(3\text{--}5\,\text{kHz}\) (up to roughly \(10\,\text{kHz}\)).
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{room0.3.png}
+\end{figure}
+
+Fletcher and Munson obtained these curves with a simple psychoacoustic experiment using two loudspeakers: one emitted a \(1\,\text{kHz}\) tone at a fixed level, the other changed frequency. Listeners adjusted the level of the variable tone until both tones were perceived equally loud. From these adjustments it follows that, at low frequency, the level must be \text{raised} to match the \(1\,\text{kHz}\) loudness (the ear is less sensitive); at high frequency, the level must be \emph{reduced} (the ear is more sensitive). The effect is strongest at low overall levels.
+
+A raw sound level in \(\mathrm{dB}\) counts all spectral components equally (is a linear measurment that accounts also for noise). To represent the effect on humans, the \(\mathrm{dB(A)}\) scale applies an \textbf{A--weighting} filter that mimics the ear’s response: it attenuates low frequencies and emphasizes the mid band. This filter is derived from the \(40\)-phon equal--loudness curve: by mirroring that curve around its \(40\,\text{dB}\) reference, one obtains the A--weighting shape. Consequently, \(\mathrm{dB(A)}\) reflects perceived loudness better than unweighted \(\mathrm{dB}\): low frequencies are cut, mid frequencies amplified, and high frequencies adjusted accordingly.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{room0.4.png}
+    \includegraphics[width=0.4\textwidth]{room0.5.png}
+    \includegraphics[width=0.8\textwidth]{room0.8.png}
+\end{figure}
+
+\begin{tcolorbox}[colback=lightgray, colframe=gray, title=Regulatory framework in Italy ]
+Since 1995, acoustics has been explicitly regulated by national law in Italy, and the professional
+figure of the \emph{Tecnico Competente in Acustica} (TCA) has been formally recognized.
+Only a TCA can sign many acoustic assessments and designs.
+
+Italian practice is commonly split into two domains:
+\begin{itemize}
+  \item \textbf{Architectural/building acoustics}:
+        compliance with \emph{passive acoustic requirements} of buildings, i.e., ensuring that sound from one room does not unduly pass to adjacent rooms or dwellings.
+  \item \textbf{Environmental acoustics}:
+        prediction and assessment of sound propagation outdoors from specific sources (plants, traffic, equipment), according to the applicable limits and zoning.
+\end{itemize}
+
+Qualification is managed by the Regions. The pathway is \emph{regional} and may vary:
+some Regions accept a defined set of academic credits, others require an approved training
+course and/or documented experience. After meeting the regional requirements, the
+professional is entered in the \textbf{national register} (commonly referred to as \emph{ENTECA}),
+which lists TCAs valid throughout Italy.
+To remain listed, TCAs must complete periodic continuing education
+(about 30 hours in a multi-year cycle, typically 5--7 years, depending on regional rules).
+Courses are paid and must be recognized by the Region.
+
+\end{tcolorbox}

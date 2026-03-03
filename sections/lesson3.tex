@@ -1,0 +1,201 @@
+\subsection{Introduction to the second part of Sound Absorbtion chapter.}
+
+For acoustic correction it is necessary to select suitable materials. Common options include simple materials (e.g., wood, glass wool, polyester). Datasheets—often available online—report the absorption coefficient and can guide the choice. Occasionally, some datasheets list \(\alpha>1\); this is physically impossible and typically reflects measurement or reporting uncertainties. For reliable design, it may therefore be necessary to perform independent measurements of the materials of interest.
+
+\subsection{Active and Passive Noise Control.}
+
+Depending on the frequency range in which attenuation is required, two different systems can be employed. At low frequencies, it is extremely difficult to achieve attenuation through passive materials. In such cases, complex mechanisms such as \emph{active noise control} can be applied. This modern technique relies on electronic devices that generate a secondary sound wave in opposition of phase to the original noise, thereby canceling it. A microphone captures the noise signal, which is processed and converted into an equal and opposite signal reproduced by a loudspeaker. The efficiency of this method depends on the speed of the processor: if the noise is highly variable, as in the case of airplanes, trains, or metro cabins, the system cannot respond quickly enough and may even amplify the noise instead of reducing it. Active noise control is therefore mainly used for low and relatively stable frequencies and remains an active field of research.
+
+In architectural acoustics, where the focus is on frequencies above approximately \(500\,\text{Hz}\), \emph{passive systems} are preferred. These systems employ panels and similar devices made of porous materials. The microcavities in the structure of such materials allow the incident sound wave to enter, where its energy is dissipated by viscous and thermal losses, ultimately being converted into heat. In this way, passive systems provide effective acoustic correction of environments without relying on electronic devices.
+
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.4\textwidth]{room32.png}
+\includegraphics[width=0.4\textwidth]{room33.png}
+\end{figure}
+
+\subsection{Absorbing systems}
+
+Room surfaces can be \emph{reflective}, \emph{absorptive}, or \emph{diffusive}. We will now focus on \emph{absorptive} behaviour. Three main absorber classes are used:
+(i) \textbf{Porous absorbers}, where viscous and thermal losses in the pores dissipate energy;
+(ii) \textbf{Panel (membrane) absorbers}, where a panel mounted over an air cavity resonates and absorbs sound;
+(iii) \textbf{Helmholtz resonators}, where a cavity–neck system absorbs around its resonance.
+Depending on the acoustic characteristics of the room, one selects the appropriate type. Sound absorption is a dissipative phenomenon: acoustic energy is converted into heat.
+
+
+
+
+The absorption coefficient lies between \(0\) and \(1\): \(\alpha=0\) indicates a fully reflective material, while \(\alpha=1\) represents a completely absorbing material, as theorized by Sabine; datasheet values \(\alpha>1\) are erroneous. \emph{Porous panels} are effective mainly above \(\sim 500\,\text{Hz}\). 
+\emph{Panel absorbers} consist of a membrane mounted over an air cavity; examples include commercial systems such as Barrisol (costs exceeding \(\sim 100\, \text{€}/\text{m}\)). Owing to their design flexibility, such panels are often adopted for both acoustic and aesthetic purposes, and they can absorb low frequencies that porous panels do not handle well. 
+\emph{Resonator absorbers} act over a specific, usually low–frequency band (around \(\sim 200\,\text{Hz}\)); walls are often equipped with resonant elements for this purpose. 
+A further class is that of \emph{metamaterials}, introduced in the Cold War era for airplanes.
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.45\textwidth]{room34.png}
+\includegraphics[width=0.45\textwidth]{room35.png}
+\end{figure}
+
+\subsection{Porus absorber}
+
+The graph shows the trend of the absorption coefficient \(\alpha\) as thickness varies. Increasing thickness raises \(\alpha\) at mid frequencies, but at low frequencies no significant improvement occurs.  Porous materials provide good absorption only above about \(500\,\text{Hz}\); at low frequencies they are ineffective, even when thickness is increased. 
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.7\textwidth]{room37.png}
+\end{figure}
+
+Acoustic performance also depends on the material type: traditionally, rock wool and glass wool offered good results, but current trends avoid them due to concerns about fibre release into the air.
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.7\textwidth]{room38.png}
+\end{figure}
+
+
+In acoustics, six octave bands from \(125\,\text{Hz}\) to \(4\,\text{kHz}\) are commonly used (in line with ISO3282 standard, as this range matches the ear’s highest sensitivity). For these six bands, each material exhibits a specific absorption coefficient. While most porous materials show \(\alpha\) increasing with frequency, glass behaves oppositely: its absorption decreases as frequency increases. At low frequencies, glass can flex and act like a panel, providing some attenuation; at high frequencies it hardly vibrates and thus absorbs very little. Consequently, highly glazed environments may exhibit noticeable low–frequency absorption due to panel-like behaviour of the glass.
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.7\textwidth]{room42.png}
+\end{figure}
+
+\subsection{Panel absorber}
+
+When an incident wave reaches a thin panel mounted in front of a rigid wall, the panel is effectively transparent, so the wave passes through it and reflects on the rigid wall. The interference between incident and reflected waves creates a standing wave in the air cavity between panel and wall. The standing wave exhibits maxima and minima of pressure; when a \emph{pressure minimum} (hence a \emph{particle–velocity maximum}) coincides with the panel, the panel is set into motion and dissipates energy, producing absorption (as in a closed–end tube). The minimum cavity depth for this condition is the quarter wavelength:
+\[
+d=\frac{\lambda}{4}=\frac{c}{4f},
+\]
+where \(c\) is the speed of sound and \(f\) the frequency.
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.45\textwidth]{room43.png}
+\includegraphics[width=0.45\textwidth]{room44.png}
+\end{figure}
+
+For example, at \(f= 100 \,\text{Hz}\) one needs \(d =  \frac{340 \, \text{m/s}}{4 \times 100 \, \text{Hz}} = 0.85\,\text{m}\) (note that conventional porous panels are ineffective at \(100\,\text{Hz}\)), whereas at \(f=1000\,\text{Hz}\) \(d\approx 0.085\,\text{m}\). Thus, the farther the panel is placed from the wall, the more it absorbs low frequencies. The panel can be spaced from the wall with varying distances (even with curved geometries), thereby tuning different frequencies.
+Changing the panel thickness (mass) modifies the resonance behaviour: a thicker (heavier) panel is more selective and vibrates less; a thinner (lighter) panel is less selective and vibrates more, acting as a broader resonator. Adding masses (e.g., “buttons’’) increases the effective mass and can increase the panel’s absorption.
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.65\textwidth]{room45.png}
+\caption{Absorption coefficient vs. frequency for a 1 mm panel with cavity depth.}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.65\textwidth]{room46.png}
+\caption{Absorption coefficient vs. frequency for a 2 mm panel with cavity depth.}
+\end{figure}
+
+
+
+\subsection{Helmholtz resonator}
+Since antiquity, acoustic correction has employed \emph{Helmholtz resonators}: amphorae placed beneath Greek theatre seating (bronze or terracotta) and, in the Middle Ages, resonator pots embedded in church walls. A resonator consists of a neck and a backing cavity: the air in the neck behaves as an \emph{acoustic mass}, the air in the cavity as an \emph{acoustic spring}. Its resonance is (single band) given by
+\[
+f_r=\frac{c}{2\pi}\sqrt{\frac{S}{V\,(L+0.8D)}},
+\]
+where \(c\) is the sound speed, \(S\) the neck cross-section, \(V\) the cavity volume, \(L\) the neck length, and \(D\) the neck diameter (the term \(0.8D\) accounts for end correction).
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.45\textwidth]{room49.png}
+\qquad
+\includegraphics[width=0.4\textwidth]{room47.png}
+\end{figure}
+
+\textit{Example.} With \(D=5\,\mathrm{cm}\), \(L=5\,\mathrm{cm}\), and \(V=10\times5\times2\,\mathrm{cm^3}=100\,\mathrm{cm^3}\),
+\[
+S=\pi\!\left(\tfrac{D}{2}\right)^2=\pi(0.025\,\mathrm{m})^2 \approx 1.96\times10^{-3}\,\mathrm{m^2}
+\]
+\[
+f_r=\frac{c}{2\pi}\sqrt{\frac{S}{V\,(L+0.8D)}}
+=\frac{344}{2\pi}\sqrt{\frac{1.96\times10^{-3}}{(1.0\times10^{-4})(0.05+0.8\cdot0.05)}} \approx 810\,\mathrm{Hz}.
+\]
+Thus this geometry absorbs around \(800\,\mathrm{Hz}\). Increasing \(V\) lowers \(f_r\); decreasing \(V\) raises \(f_r\). 
+
+Adding porous material inside the cavity increases damping and broadens the absorption band (less selective). In anechoic-chamber construction, hollow bricks loaded with porous fill are used to suppress low-frequency intrusion.
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.5\textwidth]{room48.png}
+\end{figure}
+
+\paragraph{Perforated surfaces}. A practical application of the Helmholtz resonator is found in perforated surfaces, historically used for example in telephone booths (metal grids in front of porous materials) and nowadays in wooden acoustic panels produced by companies such as \textit{TopAkustik} or \textit{Fantoni}. 
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.35\textwidth]{room56.png}
+    \quad
+\includegraphics[width=0.35\textwidth]{room57.png}
+\end{figure}
+
+The perforations connect the external air with the cavity behind the panel, thus creating a distributed Helmholtz-type resonance.
+
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.3\textwidth]{room50.png}
+\quad
+\includegraphics[width=0.45\textwidth]{room51.png}
+\end{figure}
+
+The resonance frequency is approximately
+\[
+f_{0}=\frac{c}{2\pi}\sqrt{\frac{P}{d\,t}},
+\]
+where \(c\) is the sound velocity, \(d\) the cavity depth, \(t\) the panel thickness, and \(P\) the perforation ratio (void/solid area). The perforation ratio depends on the geometry of the holes:
+\[
+P=\frac{\pi}{4}\left(\frac{r}{R}\right)^{2} \quad \text{(square pattern)}, 
+\qquad
+P=\frac{\pi}{2\sqrt{3}}\left(\frac{r}{R}\right)^{2} \quad \text{(triangular pattern)},
+\]
+with \(r\) the hole radius and \(R\) the hole spacing.
+
+Increasing the percentage of perforation (e.g. from \(5.5\%\) to \(16.5\%\)) shifts the absorption peak and broadens the effective absorption bandwidth. However, imperfections such as non-circular holes can reduce acoustic performance.
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.45\textwidth]{room52.png}
+\end{figure}
+
+Placing porous material just behind the perforated face couples the sound better and gives a stronger, wider absorption peak than placing it on the rigid backing. 
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.5\textwidth]{room53.png}
+\end{figure}
+
+By increasing the system internal dissipation, both the \emph{absorption peak} and the \emph{bandwidth frequency} (peak quality) can be increased, while the resonance frequency remains unchanged. Adjusting the airflow resistivity of the porous fill is a simple way to add or reduce this dissipation.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.3\textwidth]{room55.png}
+    \quad
+\includegraphics[width=0.45\textwidth]{room54.png}
+\end{figure}
+
+In concert halls, movable perforated panels are used to adapt the acoustic response of the room depending on the required performance conditions.
+
+\subsection{Porus Absorber Calculator: air gap and membrane mass}
+
+Increasing the cavity (air gap) shifts the resonance toward lower frequencies and thus enhances low–frequency absorption. 
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.65\textwidth]{room60.png}
+\end{figure}
+
+Conversely, decreasing the surface mass of a limp membrane broadens the absorption “bell’’ (wider bandwidth) and typically moves the peak slightly to higher frequency; increasing mass narrows the peak and shifts it downward.
+
+
+\begin{figure}[!htb]
+    \centering
+\includegraphics[width=0.65\textwidth]{room61.png}
+\end{figure}
+
+%N.B. disattivare ultrasuoni per i topi
+
+\subsection{Meta-materials}

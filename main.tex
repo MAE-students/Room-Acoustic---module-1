@@ -1,0 +1,37 @@
+\documentclass[twoside]{article}
+
+% Load all settings
+\input{default/settings}
+
+\begin{document}
+
+% Title page
+\input{default/titlepage}
+
+% Disclaimer page
+\input{default/disclaimer}
+
+% Table of contents
+\pagestyle{nohead}
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\tableofcontents
+
+% Main content
+\clearpage
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{sections/lesson1}
+\input{sections/lesson2}
+\input{sections/lesson3}
+\input{sections/lesson4}
+\input{sections/lesson5}
+%\input{sections/lesson7}
+
+% Bibliography placeholder
+%\input{default/bibliography}
+
+\end{document}

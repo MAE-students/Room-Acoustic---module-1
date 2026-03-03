@@ -1,0 +1,210 @@
+\section{Reverberation}
+\subsection{Free‐field SPL}
+
+Under ideal free‐field conditions (direct sound only, no reflections), the sound pressure level (SPL) at distance \(r\) from a point source depends solely on spherical divergence:
+\[
+L_p = L_w - 20\log_{10} r - 11 \;\;[\mathrm{dB}],
+\]
+where \(L_w\) is the sound power level of the source (a source property, typically provided in datasheets), \(r\) is in metres, and the constant \(11\,\mathrm{dB}\) equals \(10\log_{10}(4\pi)\), accounting for radiation over a sphere. Thus the SPL decreases with distance as \(-20\log_{10} r\). This relation is essential in environmental acoustics to predict the SPL at a receiver once the source power and source–receiver distance are known (e.g., estimating the noise of an outdoor HVAC unit at nearby façades).
+
+\paragraph{Examples}
+Formula: \(\displaystyle L_p = L_w - 20\log_{10} r - 11\).
+
+\[
+\begin{aligned}
+r_1 &= 10~\text{m}: &
+L_p(10) &= 100 - 20\log_{10}10 - 11
+= 100 - 20(1) - 11 = \mathbf{69~\text{dB(A)}}.\\[4pt]
+r_2 &= 20~\text{m}: &
+L_p(20) &= 100 - 20\log_{10}20 - 11
+= 100 - 20(1.3010) - 11 \\
+&&&= 100 - 26.020 - 11 = \mathbf{62.98 \approx 63~\text{dB(A)}}.\\[4pt]
+r_3 &= 40~\text{m}: &
+L_p(40) &\mathbf{ \approx 57~\text{dB}}.
+\end{aligned}
+\]
+
+In free field, the sound pressure level decays with distance as
+\(L_p=L_w-20\log_{10}r-11\), hence each doubling of distance yields a
+\(6\,\mathrm{dB}\) reduction (\(-20\log_{10}2 \approx -6\,\mathrm{dB}\)).
+
+When SPL is plotted versus the \emph{logarithm} of distance, this
+inverse‐distance law appears as a straight line with slope \(-6\,\mathrm{dB}\) per
+octave of distance. If plotted versus \emph{linear} distance, the decay
+appears as a curve.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{room62.png}
+\end{figure}
+
+\subsection{Sound fields in rooms}
+In enclosed spaces the sound travelling from a source to a receiver undergoes multiple boundary interactions. At each surface, the incident wave splits into a \emph{reflected} component, an \emph{absorbed} component (dissipated in the material), and a \emph{transmitted} component. 
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.4\textwidth]{room63.png}
+    \includegraphics[width=0.4\textwidth]{room64.png}
+\end{figure}
+
+For room acoustics the reflected and absorbed parts are crucial, as they determine the \emph{sound field} inside the room. The incident angle \(\alpha_i\) and the reflected angle \(\alpha_r\) with respect to a vertical wall are equal, according to Snell’s law. In reality, sound waves are not simple rays but complex pressure fields with varying spatial shapes. However, for practical purposes, it is possible to approximate sound propagation as a geometric process, analogous to the propagation of light. This simplification allows the use of reflection laws to design the spatial distribution of reflections and to determine the optimal position of the listener with respect to the source, as commonly done in theatre and concert hall acoustics.
+
+The \emph{direct} component is the sound that travels along the source–receiver path without boundary interactions. The \emph{reflected} component consists of waves that, before reaching the listener, are reflected by one or more surfaces. In a room the wave undergoes, in principle, an infinite sequence of reflections; their superposition forms the \emph{reverberant/acoustic field}. The temporal decay of the received signal shows the direct sound first, followed by reflections whose overall decrease in time is related to the reverberation time.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{room112.png}
+
+\end{figure}
+
+To analyse the sound field, the \emph{room impulse response} is measured, where distinct arrivals correspond to the direct sound and to successive reflections. Squaring the impulse response yields the \emph{echogram}, which displays how reflections evolve over time and the relative contribution of each reflection to the sound field. Note that, as time progresses, a given reflection may exceed earlier ones in amplitude.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{room113.png}
+
+\end{figure}
+
+The optimal reverberation time varies according to the intended use of the space, reflecting different acoustic requirements for speech and for various types of music.
+
+\subsection{Reverberation time (interrupted-source method).}
+The reverberation time \(T_{60}\) or \emph{interrupted-source} method is the time interval, after the sound source is switched off, for the sound level to decay by \(60\,\mathrm{dB}\). Sabine performed the first systematic measurements of reverberation, typically at night to avoid spurious noise. He progressively increased the sound absorption of a room (e.g., by adding cushions) and observed the corresponding reduction in \(T_{60}\). Historically, churches with large volumes and reflective finishes exhibited long reverberation times, favourable to sacred music (south european churches). Following the Second Vatican Council, the need for intelligible speech to communicate with the faithful changed the acoustic requirements (north european churches). Sabine proposed hollow tiles to reduce \(T_{60}\) in spaces such as St. Thomas Church in Boston, thereby improving speech communication; the apertures were later closed to restore longer reverberation for concerts.
+
+
+\subsection{Impulse response measurement and ISO 3382 parameters.}
+
+To measure the impulse response, we use a microphone, a balloon, and the Audacity software to record the signal. The recording is then processed with \textsc{DIRAC}, which performs the reverse integration of the squared impulse response and returns the decay curve together with the ISO~3382 parameters. 
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{room68.png}
+    \includegraphics[width=0.5\textwidth]{room69.png}
+    \includegraphics[width=0.5\textwidth]{room70.png}
+\end{figure}
+
+According to the ISO standard, the analysis is carried out up to \(4\,\mathrm{kHz}\) (above this, air absorption dominates), while below \(125\,\mathrm{Hz}\) reliable results are often not available.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{room71.png}
+\end{figure}
+
+\textbf{EDT} (early decay time) represents the initial portion of the decay, i.e., the early energy that arrives immediately; in classical music this is fundamental, because if the initial impulse is weak the sound does not adequately reach the audience. The quantities \(T_{60}\), \(T_{30}\), and \(T_{20}\) all express the decay time to a nominal \(60\,\mathrm{dB}\) drop, but they are estimated from different decay segments: \(T_{30}\) uses the slope over the first \(30\,\mathrm{dB}\) and extrapolates to \(60\,\mathrm{dB}\). Using \(T_{30}\) reduces the effect of background noise, since below about \(30\,\mathrm{dB}\) the ambient noise masks the tail of the decay. At very low frequency the background may coincide with the balloon noise, so \(T_{30}\) can be unavailable (this occurs in very large rooms or with insufficient excitation; in large spaces firecrackers are often used). If \(T_{20}\) or \(T_{30}\) are approximately equal across all frequency bands, the decay is uniform and the room is said to be \emph{Sabinian} (acoustic characteristics are similar throughout the hall). The room considered here exhibits a very low reverberation time, which is favourable for speech intelligibility; as a rule of thumb, to achieve good speech comprehension in a hall, \(T_{30}\) should be greater than \(0.7\,\mathrm{s}\). 
+
+The parameter \(G\) (strength) compares the level produced by the same source in a room with that in free field. A positive \(G\) indicates reinforcement by the room, while a negative \(G\) indicates that the room absorbs too much (in concert halls, a low \(G\) means the audience perceives a weak sound). \(G\) can be evaluated from the source power.
+
+\textbf{Clarity} \(C_{80}\) (in dB) is a music parameter: the numerator is the energy arriving within the first \(80\,\mathrm{ms}\) (musical integration time), and the denominator is the late energy arriving after \(80\,\mathrm{ms}\). For music, acceptable values are typically in the interval \([-2,\,2]\,\mathrm{dB}\); the values reported here (\(\approx 3.5\text{–}5\,\mathrm{dB}\)) lie outside this range, indicating a room not suitable for musical performance (music needs more late energy/reverberation).
+\textbf{Definition} \(D_{50}\) is a speech parameter: it is the ratio of the energy within the first \(50\,\mathrm{ms}\) (speech integration time) to the total energy. High \(D_{50}\) indicates good intelligibility; excessive late reflections reduce \(D_{50}\) and degrade speech understanding. The values shown (around \(0.5\text{–}0.7\)) indicate a room favourable to speech.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{room72.png}
+\end{figure}
+
+The Speech Transmission Index (STI) indicates speech quality: if \(\mathrm{STI}<0.5\) the room is inadequate for speech; if \(\mathrm{STI}>0.5\) it is acceptable. To measure it, place the microphone at the listener positions and the balloon (source) at the source position, then record the impulse responses.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{room73.png}
+    \includegraphics[width=0.45\textwidth]{room74.png}
+    \includegraphics[width=0.45\textwidth]{room75.png}
+\end{figure}
+
+Comparing two receiver points, a nearby listener shows an impulse response with a sharp initial peak (strong direct sound), whereas a distant listener exhibits a more rounded response (more reflections). In the ISO~3382 results, \(T_{30}\) at low frequencies is sometimes unavailable due to high background noise. The EDT increases at the farther position; STI also decreases with distance (e.g.\ \(\approx0.70\) near, \(\approx0.65\) far), indicating worse intelligibility when farther from the source. Across positions, \(T_{30}\) varies the least, whereas \(C_{80}\) varies the most from point to point (being a logarithmic measure).
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{room76.png}
+\end{figure}
+
+Room characteristics change with position; ideally, they should be as uniform as possible. For a hall intended for speech, one aims for a similar STI throughout the audience area. A common arrangement is a reflective back wall with an absorbing ceiling. Flutter echo (repeated “bouncing’’ between parallel walls) must be avoided by preventing parallelism or by adding reflective/diffusive panels.
+
+\subsection{Sabine’s empirical formula}
+Sabine derived an empirical relation between reverberation time and room parameters by correlating many measurements made with a single organ pipe (single frequency) and drawing the best–fit line; the proportionality constant is \(0.16\) (SI units). The formula—reliable for regular rooms with a diffuse field—is
+\[
+T_{60}=0.16\,\frac{V}{A},\qquad 
+A=\sum_i \alpha_i S_i \;(+\sum_j x_j),
+\]
+where \(V\) is the room volume, \(S_i\) the surface areas, \(\alpha_i\) the absorption coefficients, and \(A\) the total absorption (sabins). For large spaces such as auditoria or churches, Sabine’s formula provides only an approximation and more advanced modeling tools are required. Professional architectural–acoustics software such as \textit{Odeon}, \textit{Ramsete}, or \textit{Comsol} can perform detailed simulations but are commercial and costly (several thousand euros). The only free alternative is \textit{T-Simpa}, which is intended exclusively for research purposes and cannot be used for commercial design.
+
+
+\paragraph{Example 1 (mean absorption coefficient from a measured reverberation time).}
+Room dimensions \(14\times12\times3~\mathrm{m}\Rightarrow V=504~\mathrm{m^3}\), total surface
+\[
+S=2(14\cdot12)+2(14\cdot3)+2(12\cdot3)=492~\mathrm{m^2}.
+\]
+Measured \(T_{30}=0.8~\mathrm{s}\).
+\[
+A=\frac{0.16\,V}{T_{60}}=\frac{0.16\cdot504}{0.8}=100.8~\mathrm{m^2},\qquad
+\bar\alpha=\frac{A}{S}=\frac{100.8}{492}\approx\mathbf{0.20}.
+\]
+
+\paragraph{Example 2 (reverberation time from known absorbtion coefficients).}
+Same room (\(V=504~\mathrm{m^3}\)). Absorption data:
+\[
+\begin{aligned}
+&\text{one glass wall }(14\times3~\mathrm{m^2}),~\alpha=0.10,\\
+&\text{three gypsum walls } \bigl[(14\times3)+(12\times3)+(12\times3)\bigr]~\mathrm{m^2},~\alpha=0.15,\\
+&\text{floor }(14\times12~\mathrm{m^2}),~\alpha=0.01,\qquad
+\text{ceiling }(14\times12~\mathrm{m^2}),~\alpha=0.70.
+\end{aligned}
+\]
+Total absorption:
+\[
+\begin{aligned}
+A&=0.10(14\cdot3)+0.15\bigl[(14\cdot3)+(12\cdot3)+(12\cdot3)\bigr]
+      +0.01(14\cdot12)+0.70(14\cdot12)\\
+ &=4.2+17.1+1.68+117.6=140.58~\mathrm{m^2}.
+\end{aligned}
+\]
+Reverberation time:
+\[
+T_{60}=0.16\,\frac{V}{A}=\frac{0.16\cdot504}{140.58}
+      \approx \mathbf{0.57~\mathrm{s}}\;(\text{about }0.6~\mathrm{s}).
+\]
+
+\subsection{Reverberation tuning procedure}
+
+1) Measure the background noise with a sound level meter to verify that it is sufficiently low to allow the use of \(T_{30}\).If the ambient noise is high, the decay tail is masked and \(T_{30}\) cannot be evaluated reliably.
+
+2) Record the impulse response with a balloon; perform multiple measurements and average them, ensuring complete silence during each take. In very large rooms a balloon may be too weak and \(T_{30}\) may be missing because of background noise. Usable excitation signals are MLS (maximum–length sequences) and sine sweeps (more common nowdays): in noisy environments these computer–generated sequences are advantageous since the system that generate them knows exactly what is transmitted and what is received, allowing it to separate the response from external noise.
+
+3) After measuring \(T_{30}\) at different listener positions, each measurement yields a set of decay times — one \(T_{30}\) value for every frequency band. For each frequency band compute the arithmetic mean across the \(N\) measurements to obtain the room's mean reverberation time spectrum.
+
+4) The design target depends on the intended use of the room (e.g., for rock almost no reverberation; for classical music a longer time). Suppose at \(1000\,\mathrm{Hz}\) the measured \(T_{30}\) is \(3\,\mathrm{s}\) but the target for speech is \(T_d=1\,\mathrm{s}\). Additional absorption must be installed.
+
+Using Sabine’s relation \(T=0.16\,\frac{V}{A}\) with \(A=\sum \alpha_i S_i\), split the total absorption into the existing part \((\alpha S)_{P}\) (measured state) and the part to be added \((\alpha S)_{\mathrm{att}}\):
+\[
+A_{\text{final}}=(\alpha S)_{P}+(\alpha S)_{\mathrm{att}},\qquad 
+(\alpha S)_{\mathrm{att}}=\frac{0.16\,V}{T_d}-(\alpha S)_{P}.
+\]
+Select an absorber with coefficient \(\alpha\) from the datasheet; the surface area to install is
+\[
+S=\frac{(\alpha S)_{\mathrm{att}}}{\alpha}.
+\]
+(When installing panels, the absorption of the surfaces behind the panels—already present in \((\alpha S)_{P}\)—still contributes and must be retained in the balance.)
+
+\subsection{SPL in an enclosed room.}
+
+%Le cupole amplifcano il segnale e poi lo fann odecadre (noi ci aspetteremmo un decadimento lineare),  le colonne e la cupola centrale fa focalzare il suono nell’area sotto lacustica 
+
+In a diffuse field the sound pressure level remains essentially constant as the listener moves away from the source; only in the \emph{near field} does it vary noticeably. The straight line represents free–field decay (no reflections). In an enclosed room, wall reflections reinforce the sound, so the decay curve bends and tends toward a horizontal asymptote. If the room is highly absorbing, this horizontal “diffuse–field” region is reached only at large source–receiver distances (i.e., it approaches the ideal case slowly). If the room is reflective, the curve becomes horizontal much earlier because the reverberant field dominates at short distances. For regular, simple geometries the ideal analytical decay formula can be used; for more complex rooms, dedicated software and libraries are required.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{room77.png}
+\end{figure}
+
+\paragraph{Experiment.}
+Generate stationary white noise (e.g., with Audacity) and measure \(L_p\) (A–weighted) with a sound level meter while moving away from the source in \(1\,\mathrm{m}\) steps. Typically, the first meters show a progressive decay (about \(6, 4, 3, 2\,\mathrm{dB}\), etc.), then beyond a certain distance (e.g., \(5\text{–}6\,\mathrm{m}\)) the level stabilizes: this is the diffuse–field plateau. Repeat the measurement with a \(1\,\mathrm{kHz}\) tone instead of white noise and compare the behavior.
+
+%nella formula per calcoala il SPL in ambiente chiuso, ce la potenza sonora Lw, a segurie è infunizona della direttivita Q, la caratteristica dell’ambiente (4/R) dove R è dipsnde al coefficen di asorbietoe (consoscendo el caratterische acustiche di aplha possiamo determinare ??? dellambiente: legge ti ??? hompkins). r è la distazna sorgente ricevitrore. 1/4pir^2 è il decadimento sonoro con la distanza (in campo libero il decadimento è in funione solo della distazan). In ambiente chiuso, al suono direttivo si aggiungono le riflessioni del’ambiente, per tenere conto delle riflessioni dell’amiente usiamo il paramtero R, ovver ola caratteristica ascusitca dell’ambiente. Piu alpha è assorbente piu R è grande, piu è le parati riflettende  , piu R diventa piccolo. 
+
+\(L_w\) is a source property. It can be obtained by:
+(i) a \emph{comparison method} with a calibrated reference sound source in an anechoic or reverberant room;
+(ii) a \emph{sound–pressure method}, averaging the pressure over a known measurement surface and converting to power; or
+(iii) a \emph{sound–intensity method} using a two–microphone intensity probe.
+
+
+
+
